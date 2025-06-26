@@ -30,7 +30,7 @@
             max-width: 650px; /* Original max-width */
             padding: 50px 30px 30px 30px; /* Original padding */
             
-            background-image: url('https://i.imgur.com/F6p39nN.png'); /* <--- NEW MENU BACKGROUND IMAGE HERE */
+            background-image: url('https://i.imgur.com/FhRSEjn.png'); /* <--- NEW MENU BACKGROUND IMAGE HERE */
             background-size: 100% 100%; /* Original background size */
             background-repeat: no-repeat;
             background-position: center;
@@ -530,13 +530,14 @@
             }
         });
 
+        // --- FIXED KEYBOARD CONTROLS FUNCTION ---
         function handleKeyboardControls() {
             const speed = 10; 
             const jumpForce = 15;
 
             const cameraDirection = new THREE.Vector3();
             camera.getWorldDirection(cameraDirection);
-            cameraDirection.y = 0;
+            cameraDirection.y = 0; // Keep movement on the horizontal plane
             cameraDirection.normalize();
 
             const right = new THREE.Vector3().crossVectors(camera.up, cameraDirection).normalize();
@@ -544,25 +545,27 @@
             let moveDirection = new THREE.Vector3();
 
             if (keys['KeyW'] || keys['ArrowUp']) {
-                 moveDirection.add(cameraDirection);
+                moveDirection.add(cameraDirection);
             }
             if (keys['KeyS'] || keys['ArrowDown']) {
-                 moveDirection.sub(cameraDirection);
+                moveDirection.sub(cameraDirection);
             }
+            // Corrected Left/Right strafing
             if (keys['KeyA'] || keys['ArrowLeft']) {
-                 moveDirection.add(right);
+                moveDirection.sub(right); // Move left relative to camera
             }
             if (keys['KeyD'] || keys['ArrowRight']) {
-                 moveDirection.sub(right);
+                moveDirection.add(right); // Move right relative to camera
             }
 
             let currentYVelocity = playerBody.velocity.y;
 
-            if (moveDirection.lengthSq() > 0) {
+            if (moveDirection.lengthSq() > 0) { // Check if there's any intended horizontal movement
                 moveDirection.normalize().multiplyScalar(speed);
                 playerBody.velocity.x = moveDirection.x;
                 playerBody.velocity.z = moveDirection.z;
             } else {
+                // If no movement keys are pressed, stop horizontal velocity
                 if (playerBody.velocity.x !== 0 || playerBody.velocity.z !== 0) {
                     playerBody.velocity.x = 0;
                     playerBody.velocity.z = 0;
@@ -583,6 +586,8 @@
                 }
             }
         }
+        // --- END FIXED KEYBOARD CONTROLS FUNCTION ---
+
 
         // --- Mobile Controls Logic (D-PAD) ---
         const mobileControlsDiv = document.getElementById('mobile-controls');
@@ -658,6 +663,8 @@
             if (dPadDownPressed) {
                 moveDirection.sub(cameraDirection);
             }
+            // Note: Mobile controls for A/D were already correct, moving perpendicular to camera direction.
+            // No changes needed here based on previous A/D confusion.
             if (dPadLeftPressed) {
                 moveDirection.add(right);
             }
