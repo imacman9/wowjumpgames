@@ -809,6 +809,44 @@
             currentJoystickPos.x = 0;
             currentJoystickPos.y = 0;
         });
+        
+        // --- JUMP BUTTON LISTENER (3D Game) ---
+        jumpButton.addEventListener('touchstart', (e) => {
+            console.log("Jump button touched!");
+            e.preventDefault(); // Prevent scrolling/other default actions
+            
+            if (!gameRunning) { 
+                console.log("Jump: gameRunning is false, cannot jump."); 
+                return; 
+            }
+            if (mobileControlsDiv.style.display === 'none') { 
+                console.log("Jump: Mobile controls are hidden, cannot jump."); 
+                return; 
+            }
+            
+            console.log("Jump: canJump status:", canJump);
+            const jumpForce = 15; // Define jumpForce here or ensure it's accessible
+
+            if (canJump) { // `canJump` is for 3D game
+                playerBody.velocity.y = jumpForce;
+                canJump = false;
+                console.log("Jump: Player should jump!");
+                if (jumpSoundBuffer) {
+                    if (jumpSound.isPlaying) {
+                        jumpSound.stop();
+                    }
+                    jumpSound.play();
+                }
+            } else {
+                console.log("Jump: canJump is false, cannot jump yet.");
+            }
+        }, { passive: false }); // Use passive: false to allow preventDefault
+
+        jumpButton.addEventListener('touchend', (e) => {
+            if (!gameRunning || mobileControlsDiv.style.display === 'none') return;
+            e.preventDefault();
+            console.log("Jump button touch ended.");
+        });
 
         // --- handleMobileControls function ---
         function handleMobileControls() {
@@ -1224,8 +1262,19 @@
             canvas.width = 480; canvas.height = 320; // Set canvas size for mini-game
 
             // --- Load Images ---
-            console.log("Mini-Game: Setting up Background Image..."); const backgroundImage = new Image(); let isBgLoaded = false; backgroundImage.onload = () => { isBgLoaded = true; console.log(">>> Mini-Game BG Img loaded."); }; backgroundImage.onerror = () => { console.error(">>> Mini-Game FAILED BG Img load!"); }; backgroundImage.src = 'images/background.png';
-            console.log("Mini-Game: Setting up Player Image..."); const playerImage = new Image(); let isPlayerImageLoaded = false; playerImage.onload = ()=>{isPlayerImageLoaded = true;console.log(">>> Mini-Game Player Img loaded.");}; playerImage.onerror = ()=>{console.error(">>> Mini-Game FAILED Player Img load!");};
+            console.log("Mini-Game: Setting up Background Image..."); 
+            const backgroundImage = new Image(); 
+            let isBgLoaded = false; 
+            backgroundImage.onload = () => { isBgLoaded = true; console.log(">>> Mini-Game BG Img loaded successfully."); }; 
+            backgroundImage.onerror = (e) => { console.error(">>> Mini-Game FAILED to load BG Img! Path:", backgroundImage.src, "Error:", e); }; 
+            backgroundImage.src = 'images/background.png';
+
+            console.log("Mini-Game: Setting up Player Image..."); 
+            const playerImage = new Image(); 
+            let isPlayerImageLoaded = false; 
+            playerImage.onload = () => { isPlayerImageLoaded = true; console.log(">>> Mini-Game Player Img loaded successfully."); }; 
+            playerImage.onerror = (e) => { console.error(">>> Mini-Game FAILED to load Player Img! Path:", playerImage.src, "Error:", e); };
+            
 
             // --- Setup Music ---
             console.log("Mini-Game: Setting up Music Selection..."); 
@@ -1327,16 +1376,34 @@
             function updatePlayer() { 
                 if (!miniGameRunning) return; 
                 try { 
-                    // REMOVED: player.onGround = false; // This line was causing issues. onGround is now set only by checkCollisions
+                    // player.onGround is now correctly handled in checkCollisions
                     
-                    if (player.isMovingLeft) player.x -= playerMoveSpeed; 
-                    if (player.isMovingRight) player.x += playerMoveSpeed; 
+                    let dx = 0;
+                    if (player.isMovingLeft) {
+                        dx -= playerMoveSpeed;
+                        console.log("Mini-Game: Player isMovingLeft detected. dx =", dx);
+                    }
+                    if (player.isMovingRight) {
+                        dx += playerMoveSpeed;
+                        console.log("Mini-Game: Player isMovingRight detected. dx =", dx);
+                    }
                     
+                    if (dx !== 0) {
+                        player.x += dx;
+                        console.log("Mini-Game: Player X updated to:", player.x, "by dx:", dx);
+                    } else {
+                        // console.log("Mini-Game: Player not moving horizontally."); // Too chatty, uncomment if needed
+                    }
+
                     if (player.x < 0) player.x = 0; 
                     if (player.x + playerWidth > canvas.width) player.x = canvas.width - playerWidth; 
                     
                     player.vy += playerGravity; 
                     player.y += player.vy; 
+
+                    // Ensure player.y does not go above the top of the canvas (prevents flying off screen upwards)
+                    if (player.y < 0) player.y = 0;
+
                 } catch (e) { 
                     console.error("Mini-Game Error: updatePlayer:", e); miniGameOver(); 
                 } 
@@ -1482,7 +1549,7 @@
 
                 // Handle Music Selection
                 musicTracks.forEach((track, index) => {
-                    // Adjust optionY to consider the "Press Enter" text above
+                    // Adjusted optionY to consider the "Press Enter" text above
                     const optionY = musicOptionStartY + index * optionSpacing; 
                     ctx.font = '18px Arial';
                     const textWidth = ctx.measureText(track.name).width;
