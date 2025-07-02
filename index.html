@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Hub</title> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Game Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
 
@@ -28,7 +29,8 @@
             width: 85%;
             max-width: 650px;
             padding: 50px 30px 30px 30px;
-            
+
+            /* Original image provides a good base, keep it */
             background-image: url('https://i.imgur.com/FhRSEjn.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
@@ -47,85 +49,146 @@
             font-family: 'Luckiest Guy', 'Kalam', 'Comic Sans MS', cursive, sans-serif;
             transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
             color: #E0FFFF;
-            /* Initially visible */
             opacity: 1;
             visibility: visible;
+            /* Adding a subtle glassy overlay for the menu itself */
+            background-color: rgba(0, 50, 100, 0.2); /* A very subtle blue tint */
+            backdrop-filter: blur(5px); /* Key to the glassy look */
+            -webkit-backdrop-filter: blur(5px); /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.4); /* Light border */
         }
 
         /* --- Start Button Style (for main game) --- */
         #startButton {
             padding: 18px 40px;
             font-size: 2.2em;
-            background-color: #6A5ACD;
-            color: white;
-            border: 3px solid #8B008B;
-            border-radius: 12px;
+            color: white; /* Text color */
+            border: 1px solid rgba(0, 0, 0, 0.2); /* Darker, very subtle outer border */
+            border-radius: 18px; /* Smooth rounded corners */
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.1s, border-color 0.3s;
+            transition: all 0.2s ease-in-out;
             margin-top: auto;
-            box-shadow: 0 7px 20px rgba(0,0,0,0.5);
             font-family: 'Luckiest Guy', 'Kalam', 'Comic Sans MS', cursive, sans-serif;
             z-index: 51;
-            margin-bottom: 20px; /* Space between buttons */
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); /* Slightly stronger text shadow */
+
+            /* Core Frutiger Aero Blue Gradient */
+            background: linear-gradient(to bottom, #7DCFFF 0%, #3C9AF7 50%, #1A7DEE 100%);
+            /* Combined Box Shadows for Depth and Glow */
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.6) inset, /* Top inner light reflection */
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,      /* Bottom inner shadow */
+                0 5px 15px rgba(0, 0, 0, 0.4),          /* Standard outer shadow */
+                0 0 15px rgba(100, 150, 255, 0.6);      /* Subtle outer blue glow */
         }
+
         #startButton:hover {
-            background-color: #483D8B;
-            transform: translateY(-3px);
-            border-color: #FF1493;
+            /* Slightly lighter gradient on hover */
+            background: linear-gradient(to bottom, #8CDFFF 0%, #4CAAF7 50%, #2A8DEE 100%);
+            transform: translateY(-2px); /* Lift slightly on hover */
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.8) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.3) inset,
+                0 8px 20px rgba(0, 0, 0, 0.5), /* Stronger outer shadow */
+                0 0 20px rgba(120, 170, 255, 0.8); /* Enhanced blue glow */
         }
+
         #startButton:active {
-            transform: translateY(0);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+            background: linear-gradient(to bottom, #1A7DEE 0%, #3C9AF7 50%, #7DCFFF 100%); /* Invert gradient for pressed look */
+            transform: translateY(0); /* Press down */
+            box-shadow:
+                0 0 5px rgba(0, 0, 0, 0.5) inset, /* Stronger inner shadow */
+                0 2px 8px rgba(0, 0, 0, 0.4); /* Reduced outer shadow */
         }
 
         /* --- Mini-Game Button Style (similar to start button) --- */
         #miniGameButton {
             padding: 15px 35px;
             font-size: 1.8em;
-            background-color: #D2691E; /* Chocolate color */
             color: white;
-            border: 3px solid #8B4513; /* SaddleBrown */
-            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 18px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.1s, border-color 0.3s;
+            transition: all 0.2s ease-in-out;
             margin-top: 10px;
-            box-shadow: 0 7px 20px rgba(0,0,0,0.5);
             font-family: 'Luckiest Guy', 'Kalam', 'Comic Sans MS', cursive, sans-serif;
             z-index: 51;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+
+            /* Core Frutiger Aero Blue Gradient (slightly different shade perhaps, or same) */
+            background: linear-gradient(to bottom, #7DCFFF 0%, #3C9AF7 50%, #1A7DEE 100%);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.6) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 5px 15px rgba(0, 0, 0, 0.4),
+                0 0 15px rgba(100, 180, 255, 0.6);
         }
         #miniGameButton:hover {
-            background-color: #A0522D; /* Sienna */
-            transform: translateY(-3px);
-            border-color: #CD5C5C; /* IndianRed */
+            background: linear-gradient(to bottom, #8CDFFF 0%, #4CAAF7 50%, #2A8DEE 100%);
+            transform: translateY(-2px);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.8) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.3) inset,
+                0 8px 20px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(120, 200, 255, 0.8);
         }
         #miniGameButton:active {
+            background: linear-gradient(to bottom, #1A7DEE 0%, #3C9AF7 50%, #7DCFFF 100%);
             transform: translateY(0);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+            box-shadow:
+                0 0 5px rgba(0, 0, 0, 0.5) inset,
+                0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
-
-        #mobileControlsMenuButton {
+        /* --- Mobile Controls Menu Button (top-left) --- */
+        #mobileControlsMenuButton, #miniGameMobileControlsMenuButton {
             position: absolute;
             top: 15px;
             left: 15px;
             padding: 10px 18px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 8px;
             color: white;
             font-size: 1em;
             cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
             font-family: 'Kalam', cursive;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            z-index: 51; 
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            z-index: 51;
+
+            border-radius: 8px; /* Slightly less rounded than main buttons */
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Very subtle border */
+            /* Translucent blue-ish background with glassy reflection */
+            background: linear-gradient(to bottom, rgba(125, 200, 255, 0.7) 0%, rgba(60, 120, 255, 0.7) 100%);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.5) inset, /* Top inner light reflection */
+                0 -1px 0 rgba(0, 0, 0, 0.1) inset,      /* Bottom inner shadow */
+                0 2px 8px rgba(0,0,0,0.3);              /* Standard outer shadow */
+            backdrop-filter: blur(3px); /* Add blur for glassy effect */
+            -webkit-backdrop-filter: blur(3px);
+            transition: all 0.2s ease-in-out;
         }
-        #mobileControlsMenuButton:hover {
-            background-color: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.7);
+        #miniGameMobileControlsMenuButton {
+            top: 50px; /* Different position from main game's button */
+            left: 15px;
+            display: none; /* Hidden by default */
         }
+        #mobileControlsMenuButton:hover, #miniGameMobileControlsMenuButton:hover {
+            background: linear-gradient(to bottom, rgba(100, 180, 255, 0.8) 0%, rgba(40, 100, 255, 0.8) 100%);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.7) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 3px 10px rgba(0,0,0,0.4);
+            transform: translateY(-1px);
+        }
+        #mobileControlsMenuButton:active, #miniGameMobileControlsMenuButton:active {
+            background: linear-gradient(to bottom, rgba(60, 120, 255, 0.7) 0%, rgba(125, 200, 255, 0.7) 100%);
+            box-shadow:
+                0 0 5px rgba(0,0,0,0.5) inset,
+                0 1px 5px rgba(0,0,0,0.3);
+            transform: translateY(0);
+        }
+
 
         #messageBox {
             display: none; /* Hidden by default */
@@ -134,33 +197,58 @@
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 40px;
-            background: rgba(20, 20, 20, 0.9);
-            border: 2px solid #444;
-            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
             z-index: 100;
             font-family: 'Luckiest Guy', 'Kalam', 'Comic Sans MS', cursive, sans-serif;
+            /* Frutiger Aero for message box */
+            background: linear-gradient(to bottom, rgba(0, 70, 140, 0.8) 0%, rgba(0, 30, 80, 0.8) 100%); /* Darker blue gradient */
+            border: 1px solid rgba(255, 255, 255, 0.4); /* Lighter border */
+            border-radius: 15px;
+            backdrop-filter: blur(8px); /* Stronger blur for pop-up */
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.3) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 0 25px rgba(0, 100, 200, 0.7); /* Blue glow */
         }
         #messageBox h2 {
             margin-top: 0;
             font-size: 2.2em;
-            color: #4CAF50;
+            color: #4CAF50; /* Keep green for success, or change to a blue success tone */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
         #messageBox button {
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 1.1em;
-            border: none;
-            border-radius: 5px;
-            background-color: #4CAF50;
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s;
             font-family: 'Luckiest Guy', 'Kalam', 'Comic Sans MS', cursive, sans-serif;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            transition: all 0.2s ease-in-out;
+
+            border-radius: 8px; /* Softer corners */
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to bottom, #7DCFFF 0%, #3C9AF7 100%); /* Blue gradient for restart button */
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.6) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 3px 10px rgba(0,0,0,0.3);
         }
         #messageBox button:hover {
-            background-color: #45a049;
+            background: linear-gradient(to bottom, #8CDFFF 0%, #4CAAF7 100%);
+            transform: translateY(-2px);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.8) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.3) inset,
+                0 5px 15px rgba(0,0,0,0.4);
+        }
+        #messageBox button:active {
+            background: linear-gradient(to bottom, #3C9AF7 0%, #7DCFFF 100%);
+            transform: translateY(0);
+            box-shadow:
+                0 0 5px rgba(0,0,0,0.5) inset,
+                0 2px 8px rgba(0,0,0,0.4);
         }
 
         /* --- Fullscreen Button Styles --- */
@@ -170,28 +258,47 @@
             right: 20px;
             width: 40px;
             height: 40px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 5px;
             color: white;
             font-size: 24px;
-            display: flex; /* Always display but will be hidden by parent container visibility */
+            display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             z-index: 10;
-            transition: background-color 0.3s, border-color 0.3s;
             line-height: 1;
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
             user-select: none;
             -webkit-tap-highlight-color: transparent;
+            
+            border-radius: 8px; /* Slightly less rounded */
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            /* Translucent blue-ish background with glassy reflection */
+            background: linear-gradient(to bottom, rgba(125, 200, 255, 0.7) 0%, rgba(60, 120, 255, 0.7) 100%);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.5) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.1) inset,
+                0 2px 8px rgba(0,0,0,0.3);
+            backdrop-filter: blur(3px); /* Glassy effect */
+            -webkit-backdrop-filter: blur(3px);
+            transition: all 0.2s ease-in-out;
         }
         #fullscreenButton:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-            border-color: white;
+            background: linear-gradient(to bottom, rgba(100, 180, 255, 0.8) 0%, rgba(40, 100, 255, 0.8) 100%);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.7) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 3px 10px rgba(0,0,0,0.4);
+            transform: translateY(-1px);
+        }
+        #fullscreenButton:active {
+            background: linear-gradient(to bottom, rgba(60, 120, 255, 0.7) 0%, rgba(125, 200, 255, 0.7) 100%);
+            box-shadow:
+                0 0 5px rgba(0,0,0,0.5) inset,
+                0 1px 5px rgba(0,0,0,0.3);
+            transform: translateY(0);
         }
 
-        /* --- Mobile Controls Styles (Joystick) --- */
+        /* --- Mobile Controls (Joystick for 3D Game) --- */
         #mobile-controls {
             position: absolute;
             bottom: 20px;
@@ -209,15 +316,25 @@
             position: relative; /* Allows knob to be positioned absolutely within it */
             width: 150px; /* Size of the joystick area */
             height: 150px;
-            background: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
             border-radius: 50%; /* Make it a circle */
-            box-shadow: 0 3px 10px rgba(0,0,0,0.4);
             pointer-events: auto; /* Make the base interactive for touch */
             user-select: none;
             -webkit-tap-highlight-color: transparent;
             display: flex; /* For centering the knob */
             justify-content: center;
             align-items: center;
+            transition: all 0.2s ease-in-out;
+
+            /* Base Frutiger Aero look */
+            background: linear-gradient(to bottom, rgba(100, 180, 255, 0.4) 0%, rgba(60, 120, 255, 0.4) 100%);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.3) inset, /* Subtle top inner reflection */
+                0 -1px 0 rgba(0, 0, 0, 0.1) inset,      /* Subtle bottom inner shadow */
+                0 3px 10px rgba(0,0,0,0.4),             /* Standard outer shadow */
+                0 0 15px rgba(100, 180, 255, 0.5);      /* Soft blue glow */
+            backdrop-filter: blur(4px); /* Glassy blur */
+            -webkit-backdrop-filter: blur(4px);
         }
 
         /* Joystick Knob */
@@ -225,22 +342,30 @@
             position: absolute; /* Positioned relative to #joystick-base */
             width: 70px; /* Size of the movable knob */
             height: 70px;
-            background: rgba(100, 100, 100, 0.7); /* Greyish knob color */
             border-radius: 50%; /* Make it a circle */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            transition: background-color 0.1s ease;
             cursor: grab; /* Indicates it's draggable */
+            transition: all 0.1s ease;
+
+            /* Knob Frutiger Aero look */
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(150, 200, 255, 0.9) 100%); /* Very light to light blue */
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.8) inset, /* Strong inner highlight for gloss */
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,      /* Inner bottom shadow */
+                0 2px 8px rgba(0,0,0,0.4);              /* Standard outer shadow */
         }
         #joystick-knob:active {
-            background: rgba(150, 150, 150, 0.9); /* Lighter on press */
+            background: linear-gradient(to bottom, rgba(180, 210, 240, 0.9) 0%, rgba(130, 180, 230, 0.9) 100%);
             cursor: grabbing;
+            box-shadow:
+                0 0 5px rgba(0,0,0,0.5) inset,
+                0 1px 5px rgba(0,0,0,0.4);
         }
 
-        /* Jump button remains the same */
+        /* Jump button */
         #jump-button {
             width: 100px;
             height: 100px;
-            background: #4CAF50; /* Green for jump */
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -251,13 +376,25 @@
             pointer-events: auto;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            transition: background-color 0.1s ease, transform 0.1s ease;
             font-family: 'Luckiest Guy', 'Kalam', cursive;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+            transition: all 0.2s ease-in-out;
+
+            /* Jump button Frutiger Aero look */
+            background: linear-gradient(to bottom, #00BFFF 0%, #1E90FF 100%); /* Deep Sky Blue to Dodger Blue */
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.6) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 5px 15px rgba(0,0,0,0.4),
+                0 0 20px rgba(0, 191, 255, 0.7); /* Blue glow */
         }
         #jump-button:active {
-            transform: translateY(2px);
-            background: #45a049;
+            background: linear-gradient(to bottom, #1E90FF 0%, #00BFFF 100%); /* Invert gradient for pressed */
+            transform: translateY(1px); /* Press down */
+            box-shadow:
+                0 0 5px rgba(0,0,0,0.5) inset,
+                0 2px 8px rgba(0,0,0,0.4);
         }
 
         /* --- Main Game Container (holds 3D canvas and its UI) --- */
@@ -314,6 +451,14 @@
             font-size: 24px;
             font-family: 'Luckiest Guy', cursive;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 61; /* Above canvas */
+            /* Some Frutiger Aero for score display */
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         #backToMainMenuButton {
@@ -322,18 +467,129 @@
             right: 10px;
             padding: 10px 20px;
             font-size: 1.1em;
-            background-color: #DC143C; /* Crimson */
             color: white;
-            border: 2px solid #8B0000; /* DarkRed */
-            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.1s;
             font-family: 'Luckiest Guy', cursive;
             z-index: 61; /* Ensure it's above canvas */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            transition: all 0.2s ease-in-out;
+
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            /* Keep red for "back" but with Frutiger Aero gradients */
+            background: linear-gradient(to bottom, #DC143C 0%, #8B0000 100%); /* Crimson to Dark Red */
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.4) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 3px 10px rgba(0,0,0,0.3);
         }
         #backToMainMenuButton:hover {
-            background-color: #B22222; /* FireBrick */
+            background: linear-gradient(to bottom, #8B0000 0%, #DC143C 100%); /* Invert gradient on hover */
             transform: translateY(-2px);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.6) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.3) inset,
+                0 5px 15px rgba(0,0,0,0.4);
+        }
+        #backToMainMenuButton:active {
+            background: linear-gradient(to bottom, #8B0000 0%, #DC143C 100%);
+            transform: translateY(0);
+            box-shadow:
+                0 0 5px rgba(0,0,0,0.5) inset,
+                0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        /* --- NEW: Mini-Game Mobile Controls Styles --- */
+        #mini-game-mobile-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            display: none; /* Hidden by default */
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 70; /* Higher than mini-game canvas */
+            pointer-events: none; /* Initially non-interactive */
+        }
+
+        #mini-joystick-base {
+            position: relative;
+            width: 130px; /* Slightly smaller for mini-game */
+            height: 130px;
+            border-radius: 50%;
+            pointer-events: auto;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease-in-out;
+
+            background: linear-gradient(to bottom, rgba(100, 180, 255, 0.4) 0%, rgba(60, 120, 255, 0.4) 100%);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.3) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.1) inset,
+                0 3px 10px rgba(0,0,0,0.4),
+                0 0 15px rgba(100, 180, 255, 0.5);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        #mini-joystick-knob {
+            position: absolute;
+            width: 60px; /* Slightly smaller */
+            height: 60px;
+            border-radius: 50%;
+            cursor: grab;
+            transition: all 0.1s ease;
+
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(150, 200, 255, 0.9) 100%);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.8) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 2px 8px rgba(0,0,0,0.4);
+        }
+        #mini-joystick-knob:active {
+            background: linear-gradient(to bottom, rgba(180, 210, 240, 0.9) 0%, rgba(130, 180, 230, 0.9) 100%);
+            cursor: grabbing;
+            box-shadow:
+                0 0 5px rgba(0,0,0,0.5) inset,
+                0 1px 5px rgba(0,0,0,0.4);
+        }
+
+        #mini-jump-button {
+            width: 90px; /* Slightly smaller */
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: white;
+            pointer-events: auto;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Luckiest Guy', 'Kalam', cursive;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+            transition: all 0.2s ease-in-out;
+
+            background: linear-gradient(to bottom, #4682B4 0%, #6A5ACD 100%); /* SteelBlue to SlateBlue for mini-game */
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.6) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 5px 15px rgba(0,0,0,0.4),
+                0 0 20px rgba(70, 130, 180, 0.7);
+        }
+        #mini-jump-button:active {
+            transform: translateY(1px); /* Press down */
+            background: linear-gradient(to bottom, #6A5ACD 0%, #4682B4 100%);
+            box-shadow:
+                0 0 5px rgba(0,0,0,0.5) inset,
+                0 2px 8px rgba(0,0,0,0.4);
         }
     </style>
 </head>
@@ -364,6 +620,13 @@
         <canvas id="miniGameCanvas"></canvas>
         <div id="miniGameScore">Score: 0</div>
         <button id="backToMainMenuButton">Back to Main Menu</button>
+        <div id="mini-game-mobile-controls">
+            <div id="mini-joystick-base">
+                <div id="mini-joystick-knob"></div>
+            </div>
+            <div id="mini-jump-button">JUMP</div>
+        </div>
+        <button id="miniGameMobileControlsMenuButton">Show Mobile Controls</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
@@ -375,7 +638,7 @@
         let miniGameActive = false; // True if 2D mini-game is active
 
         // === GLOBAL REFERENCES FOR MINI-GAME AUDIO (allows stopping from outside its scope) ===
-        let miniGameMusicPlayer = null;
+        let miniGameMusicPlayer = null; // Stores the SourceNode and GainNode
         let miniGameSfx = {}; // Will hold jump, land, gameOver sounds for mini-game
 
         // === GLOBAL ASSET DEFAULTS (from 3D game) ===
@@ -403,12 +666,12 @@
         }
 
         const world = new CANNON.World();
-        world.gravity.set(0, -20, 0); 
+        world.gravity.set(0, -20, 0);  
         world.broadphase = new CANNON.NaiveBroadphase();
-        world.solver.iterations = 20; 
-        world.solver.tolerance = 0.001; 
-        world.defaultContactMaterial.friction = 0.5; 
-        world.defaultContactMaterial.restitution = 0.1; 
+        world.solver.iterations = 20;  
+        world.solver.tolerance = 0.001;  
+        world.defaultContactMaterial.friction = 0.5;  
+        world.defaultContactMaterial.restitution = 0.1;  
         console.log("CANNON.js physics world initialized.");
 
         // === Lighting (Main Game) ===
@@ -451,14 +714,14 @@
 
         // --- Physics Material for Player ---
         const playerPhysicsMaterial = new CANNON.Material("playerMaterial");
-        const playerShape = new CANNON.Box(new CANNON.Vec3(playerSize / 2, playerSize / 2, 0.5)); 
+        const playerShape = new CANNON.Box(new CANNON.Vec3(playerSize / 2, playerSize / 2, 0.5));  
         const playerBody = new CANNON.Body({ mass: 5, shape: playerShape, material: playerPhysicsMaterial });
-        playerBody.allowSleep = false; 
+        playerBody.allowSleep = false;  
         playerBody.fixedRotation = true;
         playerBody.linearDamping = 0.1;
         playerBody.angularDamping = 0.9;
 
-        let startPosition = new CANNON.Vec3(0, 5, 0); 
+        let startPosition = new CANNON.Vec3(0, 5, 0);  
         playerBody.position.copy(startPosition);
         world.addBody(playerBody);
         console.log("Player physics body created and added to world. fixedRotation set to true.");
@@ -530,7 +793,7 @@
             const startPlatPos = { x: 0, y: 0, z: 0 };
             platforms.push(createPlatform(startPlatSize, new THREE.Vector3(startPlatPos.x, startPlatPos.y, startPlatPos.z)));
             
-            startPosition.set(startPlatPos.x, startPlatPos.y + 5, startPlatPos.z); 
+            startPosition.set(startPlatPos.x, startPlatPos.y + 5, startPlatPos.z);  
 
             let lastPlatformPos = new THREE.Vector3(startPlatPos.x, startPlatPos.y, startPlatPos.z);
 
@@ -573,21 +836,44 @@
         const backgroundMusic = new THREE.Audio(listener);
         const audioLoader = new THREE.AudioLoader();
         const musicUrl = DEFAULT_3D_MUSIC_URL; // Using global constant here
-        let musicStarted = false;
+        let musicLoaded = false; // Flag to check if music buffer is loaded
+
+        audioLoader.load(musicUrl, function(buffer) {
+            backgroundMusic.setBuffer(buffer);
+            backgroundMusic.setLoop(true);
+            backgroundMusic.setVolume(0.5);
+            musicLoaded = true;
+            console.log("3D game music buffer loaded.");
+        }, undefined, function(err) {
+            console.error('An error occurred loading the background music:', err);
+            musicLoaded = false;
+        });
 
         function playBackgroundMusic() {
-            if (!musicStarted) {
-                audioLoader.load(musicUrl, function(buffer) {
-                    backgroundMusic.setBuffer(buffer);
-                    backgroundMusic.setLoop(true);
-                    backgroundMusic.setVolume(0.5);
+            if (musicLoaded) {
+                // Check if already playing or paused
+                if (!backgroundMusic.isPlaying && backgroundMusic.buffer) {
                     backgroundMusic.play();
-                }, undefined, function(err) {
-                    console.error('An error occurred loading the background music:', err);
-                });
-                musicStarted = true;
-            } else if (backgroundMusic && backgroundMusic.isPaused) {
-                backgroundMusic.play();
+                    console.log("3D game music started/resumed.");
+                } else if (backgroundMusic.isPlaying) {
+                    // Already playing, do nothing
+                } else if (backgroundMusic.buffer && backgroundMusic.isPaused) {
+                    backgroundMusic.play(); // This is the correct way to resume Three.js Audio
+                    console.log("3D game music resumed from paused state.");
+                } else if (backgroundMusic.buffer && !backgroundMusic.isPlaying) {
+                    // If not playing and not explicitly paused (e.g., initial state), start it
+                    backgroundMusic.play();
+                    console.log("3D game music started for the first time.");
+                }
+            } else {
+                console.warn("3D game music not yet loaded, cannot play.");
+            }
+        }
+
+        function pauseBackgroundMusic() {
+            if (backgroundMusic && backgroundMusic.isPlaying) {
+                backgroundMusic.pause();
+                console.log("3D game music paused.");
             }
         }
 
@@ -620,18 +906,18 @@
 
         playerBody.addEventListener("collide", (e) => {
             const contact = e.contact;
-            if (contact.bi.id === playerBody.id) { 
-                contact.ni.negate(contactNormal); 
-            } else { 
-                contactNormal.copy(contact.ni); 
+            if (contact.bi.id === playerBody.id) {  
+                contact.ni.negate(contactNormal);  
+            } else {  
+                contactNormal.copy(contact.ni);  
             }
 
-            if (contactNormal.dot(up) > 0.5) { 
-                if (!canJump) { 
+            if (contactNormal.dot(up) > 0.5) {  
+                if (!canJump) {  
                     canJump = true;
                 }
             } else {
-                if (canJump) { 
+                if (canJump) {  
                     canJump = false;
                 }
             }
@@ -639,22 +925,21 @@
             if (endPlatformBody && (e.body === endPlatformBody)) {
                 if (playerBody.velocity.y < 0.1 && contactNormal.dot(up) > 0.8) {
                     console.log("Player reached win platform! Generating new level.");
-                    generateRandomLevel();
-                    resetPlayer();
+                    showMessage("You win! Next Level!", true); // Pass 'true' for win
                 }
             }
         });
 
         function handleMainGameKeyboardControls() {
-            const speed = 10; 
+            const speed = 10;  
             const jumpForce = 15;
 
             const cameraDirection = new THREE.Vector3();
             camera.getWorldDirection(cameraDirection);
-            cameraDirection.y = 0; 
+            cameraDirection.y = 0;  
             cameraDirection.normalize();
 
-            const right = new THREE.Vector3().crossVectors(cameraDirection, camera.up).normalize(); 
+            const right = new THREE.Vector3().crossVectors(cameraDirection, camera.up).normalize();  
 
             let moveDirection = new THREE.Vector3();
 
@@ -684,7 +969,7 @@
                 }
             }
             
-            playerBody.velocity.y = currentYVelocity; 
+            playerBody.velocity.y = currentYVelocity;  
 
             if ((keys['Space']) && canJump) {
                 playerBody.velocity.y = jumpForce;
@@ -700,7 +985,7 @@
         }
 
 
-        // === Mobile Controls Logic (Joystick) ===
+        // === Mobile Controls Logic (Joystick for 3D Game) ===
         const mobileControlsDiv = document.getElementById('mobile-controls');
         const jumpButton = document.getElementById('jump-button');
         const mobileControlsMenuButton = document.getElementById('mobileControlsMenuButton');
@@ -732,241 +1017,109 @@
             if (mobileControlsVisible) {
                 updateJoystickBasePosition();
             }
+            if (miniGameActive && miniGameMobileControlsVisible) {
+                updateMiniJoystickBasePosition(); // Update for mini-game controls too
+            }
         });
 
         joystickBase.addEventListener('touchstart', (e) => {
-            if (!gameRunning || mobileControlsDiv.style.display === 'none') return;
-            e.preventDefault(); // Prevent scrolling
+            if (!gameRunning) return; // Only allow joystick interaction if 3D game is running
+
+            e.preventDefault(); // Prevent scrolling/zooming
+
             isJoystickActive = true;
-            updateJoystickBasePosition(); // Ensure center is updated
-
+            updateJoystickBasePosition(); // Recalculate center in case of scroll/resize before touch
             const touch = e.touches[0];
-            let touchX = touch.clientX;
-            let touchY = touch.clientY;
-
-            // Calculate offset from center
-            let offsetX = touchX - joystickCenter.x;
-            let offsetY = touchY - joystickCenter.y;
-
-            // Clamp distance
-            let distance = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
-            if (distance > maxJoystickDistance) {
-                let angle = Math.atan2(offsetY, offsetX);
-                offsetX = maxJoystickDistance * Math.cos(angle);
-                offsetY = maxJoystickDistance * Math.sin(angle);
-            }
-
-            // Position knob relative to its own size to be centered on the touch
-            joystickKnob.style.left = `${joystickBase.offsetWidth / 2 + offsetX}px`;
-            joystickKnob.style.top = `${joystickBase.offsetHeight / 2 + offsetY}px`;
-            joystickKnob.style.transform = 'translate(-50%, -50%)';
-
-            // Normalize values for game logic (-1 to 1)
-            currentJoystickPos.x = offsetX / maxJoystickDistance;
-            currentJoystickPos.y = -offsetY / maxJoystickDistance; // Invert Y for game (up is positive)
-
-        }, { passive: false });
+            moveJoystickKnob(touch.clientX, touch.clientY);
+        });
 
         joystickBase.addEventListener('touchmove', (e) => {
-            if (!gameRunning || !isJoystickActive || mobileControlsDiv.style.display === 'none') return;
+            if (!isJoystickActive || !gameRunning) return;
             e.preventDefault();
-
             const touch = e.touches[0];
-            let touchX = touch.clientX;
-            let touchY = touch.clientY;
-
-            // Calculate offset from center
-            let offsetX = touchX - joystickCenter.x;
-            let offsetY = touchY - joystickCenter.y;
-
-            // Clamp distance
-            let distance = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
-            if (distance > maxJoystickDistance) {
-                let angle = Math.atan2(offsetY, offsetX);
-                offsetX = maxJoystickDistance * Math.cos(angle);
-                offsetY = maxJoystickDistance * Math.sin(angle);
-            }
-
-            // Position knob
-            joystickKnob.style.left = `${joystickBase.offsetWidth / 2 + offsetX}px`;
-            joystickKnob.style.top = `${joystickBase.offsetHeight / 2 + offsetY}px`;
-            joystickKnob.style.transform = 'translate(-50%, -50%)';
-
-            // Normalize values for game logic (-1 to 1)
-            currentJoystickPos.x = offsetX / maxJoystickDistance;
-            currentJoystickPos.y = -offsetY / maxJoystickDistance; // Invert Y for game (up is positive)
-
-        }, { passive: false });
+            moveJoystickKnob(touch.clientX, touch.clientY);
+        });
 
         joystickBase.addEventListener('touchend', () => {
-            if (!gameRunning || mobileControlsDiv.style.display === 'none') return;
             isJoystickActive = false;
-            // Reset knob to center
+            resetJoystickKnob();
+            currentJoystickPos = { x: 0, y: 0 }; // Reset movement
+        });
+
+        function moveJoystickKnob(clientX, clientY) {
+            let offsetX = clientX - joystickCenter.x;
+            let offsetY = clientY - joystickCenter.y;
+
+            const distance = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
+
+            if (distance > maxJoystickDistance) {
+                offsetX = (offsetX / distance) * maxJoystickDistance;
+                offsetY = (offsetY / distance) * maxJoystickDistance;
+            }
+
+            joystickKnob.style.left = `${joystickKnob.offsetLeft + offsetX - (joystickKnob.offsetWidth / 2)}px`;
+            joystickKnob.style.top = `${joystickKnob.offsetTop + offsetY - (joystickKnob.offsetHeight / 2)}px`;
+
+            // Update normalized joystick position (-1 to 1)
+            currentJoystickPos.x = offsetX / maxJoystickDistance;
+            currentJoystickPos.y = offsetY / maxJoystickDistance;
+
+            // Adjust knob position relative to its parent for smooth movement within the base
+            joystickKnob.style.transform = `translate(${offsetX - joystickKnob.offsetWidth / 2}px, ${offsetY - joystickKnob.offsetHeight / 2}px)`;
+        }
+
+        function resetJoystickKnob() {
+            joystickKnob.style.transform = 'translate(-50%, -50%)';
             joystickKnob.style.left = '50%';
             joystickKnob.style.top = '50%';
-            joystickKnob.style.transform = 'translate(-50%, -50%)';
-            // Reset normalized position
-            currentJoystickPos.x = 0;
-            currentJoystickPos.y = 0;
-        });
-        
-        // --- JUMP BUTTON LISTENER (3D Game) ---
-        jumpButton.addEventListener('touchstart', (e) => {
-            console.log("Jump button touched!");
-            e.preventDefault(); // Prevent scrolling/other default actions
-            
-            if (!gameRunning) { 
-                console.log("Jump: gameRunning is false, cannot jump."); 
-                return; 
-            }
-            if (mobileControlsDiv.style.display === 'none') { 
-                console.log("Jump: Mobile controls are hidden, cannot jump."); 
-                return; 
-            }
-            
-            console.log("Jump: canJump status:", canJump);
-            const jumpForce = 15; // Define jumpForce here or ensure it's accessible
-
-            if (canJump) { // `canJump` is for 3D game
-                playerBody.velocity.y = jumpForce;
-                canJump = false;
-                console.log("Jump: Player should jump!");
-                if (jumpSoundBuffer) {
-                    if (jumpSound.isPlaying) {
-                        jumpSound.stop();
-                    }
-                    jumpSound.play();
-                }
-            } else {
-                console.log("Jump: canJump is false, cannot jump yet.");
-            }
-        }, { passive: false }); // Use passive: false to allow preventDefault
-
-        jumpButton.addEventListener('touchend', (e) => {
-            if (!gameRunning || mobileControlsDiv.style.display === 'none') return;
-            e.preventDefault();
-            console.log("Jump button touch ended.");
-        });
-
-        // --- handleMobileControls function ---
-        function handleMobileControls() {
-            const speed = 10;
-            const cameraDirection = new THREE.Vector3();
-            camera.getWorldDirection(cameraDirection);
-            cameraDirection.y = 0;
-            cameraDirection.normalize();
-
-            const right = new THREE.Vector3().crossVectors(cameraDirection, camera.up).normalize();
-
-            let moveDirection = new THREE.Vector3();
-
-            // Use joystick's normalized X and Y values
-            if (Math.abs(currentJoystickPos.y) > 0.05) { // Threshold to prevent tiny movements
-                moveDirection.add(cameraDirection.clone().multiplyScalar(currentJoystickPos.y));
-            }
-            if (Math.abs(currentJoystickPos.x) > 0.05) { // Threshold
-                moveDirection.add(right.clone().multiplyScalar(currentJoystickPos.x));
-            }
-
-            let currentYVelocity = playerBody.velocity.y;
-
-            if (moveDirection.lengthSq() > 0) { 
-                moveDirection.normalize().multiplyScalar(speed); 
-                playerBody.velocity.x = moveDirection.x;
-                playerBody.velocity.z = moveDirection.z;
-            } else {
-                // If joystick is centered, stop horizontal velocity
-                if (playerBody.velocity.x !== 0 || playerBody.velocity.z !== 0) {
-                    playerBody.velocity.x = 0;
-                    playerBody.velocity.z = 0;
-                }
-            }
-            playerBody.velocity.y = currentYVelocity;
         }
-        // --- End handleMobileControls function ---
 
-        let mobileControlsVisible = false; 
-
+        let mobileControlsVisible = false; // To track visibility
         mobileControlsMenuButton.addEventListener('click', () => {
             mobileControlsVisible = !mobileControlsVisible;
-            console.log("DEBUG: Toggling mobile controls. New mobileControlsVisible:", mobileControlsVisible); 
+            mobileControlsDiv.style.display = mobileControlsVisible ? 'flex' : 'none';
             if (mobileControlsVisible) {
-                mobileControlsDiv.style.display = 'flex';
-                mobileControlsDiv.style.pointerEvents = 'auto'; // Enable pointer events
-                mobileControlsMenuButton.textContent = 'Hide Mobile Controls';
-                console.log("DEBUG: mobileControlsDiv.style.display set to 'flex'"); 
-                updateJoystickBasePosition(); // IMPORTANT: Position joystick correctly when shown
-            } else {
-                mobileControlsDiv.style.display = 'none';
-                mobileControlsDiv.style.pointerEvents = 'none'; // Disable pointer events
-                // Reset joystick state
-                isJoystickActive = false;
-                currentJoystickPos.x = 0;
-                currentJoystickPos.y = 0;
-                joystickKnob.style.left = '50%';
-                joystickKnob.style.top = '50%';
-                joystickKnob.style.transform = 'translate(-50%, -50%)';
-
-                playerBody.velocity.x = 0; 
-                playerBody.velocity.z = 0;
-                mobileControlsMenuButton.textContent = 'Show Mobile Controls';
-                console.log("DEBUG: mobileControlsDiv.style.display set to 'none'"); 
+                updateJoystickBasePosition(); // Ensure joystick is positioned correctly
             }
         });
 
 
-        // === UI Element References ===
-        const mainMenu = document.getElementById('mainMenu');
-        const startButton = document.getElementById('startButton');
-        const messageBox = document.getElementById('messageBox');
-        const messageText = document.getElementById('messageText');
-        const restartButton = document.getElementById('restartButton');
-        const fullscreenButton = document.getElementById('fullscreenButton');
-        const miniGameButton = document.getElementById('miniGameButton'); 
+        // Universal mobile jump handler
+        // This function needs to modify `canJump` from the main game's scope
+        function handleMobileJump(gameType) {
+            if (gameType === '3D') {
+                if (canJump) {
+                    playerBody.velocity.y = 15; // Jump force for 3D game
+                    canJump = false; // Set canJump to false immediately
 
-        // === Gamepad Variables and Listeners ===
-        let gamepad = null;
-        let gamepadInputActive = false;
-        let prevJumpButtonPressed = false; 
-
-        window.addEventListener("gamepadconnected", (e) => {
-            console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
-                e.gamepad.index, e.gamepad.id,
-                e.gamepad.buttons.length, e.gamepad.axes.length);
-            gamepad = e.gamepad;
-            gamepadInputActive = true;
-        });
-
-        window.addEventListener("gamepaddisconnected", (e) => {
-            console.log("Gamepad disconnected from index %d: %s",
-                e.gamepad.index, e.gamepad.id);
-            gamepad = null;
-            gamepadInputActive = false;
-        });
-
-        function pollGamepads() {
-            const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
-            gamepad = null; 
-            for (let i = 0; i < gamepads.length; i++) {
-                if (gamepads[i]) {
-                    gamepad = gamepads[i];
-                    break;
+                    if (jumpSoundBuffer) {
+                        if (jumpSound.isPlaying) {
+                            jumpSound.stop();
+                        }
+                        jumpSound.play();
+                    }
+                }
+            } else if (gameType === '2D') {
+                 if (!miniPlayer.isJumping && miniPlayer.grounded) {
+                    miniPlayer.dy = miniPlayer.jumpStrength;
+                    miniPlayer.isJumping = true;
+                    miniPlayer.grounded = false;
+                    if (miniGameJumpSoundBuffer) miniGameSfx.play(miniGameJumpSoundBuffer, false, 0.7);
                 }
             }
-            gamepadInputActive = !!gamepad; 
         }
 
-        // --- handleGamepadControls function ---
-        function handleGamepadControls() {
-            if (!gamepad) return;
+        // Apply to main game jump button
+        jumpButton.addEventListener('click', () => {
+            if (gameRunning) { // Ensure main game is active
+                handleMobileJump('3D');
+            }
+        });
+
+        function handleMainGameMobileControls() {
+            if (!mobileControlsVisible) return;
 
             const speed = 10;
-            const jumpForce = 15;
-            const deadzone = 0.15; 
-
-            // Get joystick values (Left stick: axes[0] for X, axes[1] for Y)
-            const leftStickX = gamepad.axes[0];
-            const leftStickY = gamepad.axes[1];
 
             const cameraDirection = new THREE.Vector3();
             camera.getWorldDirection(cameraDirection);
@@ -977,766 +1130,543 @@
 
             let moveDirection = new THREE.Vector3();
 
-            // --- MOVEMENT: Prioritize Gamepad D-pad over Left Joystick ---
-            let dPadActive = false;
-            
-            const dPadUpIndex = 3; // These might vary by controller
-            const dPadDownIndex = 5;
-            const dPadLeftIndex = 4;
-            const dPadRightIndex = 6;
+            // Use joystick input for movement
+            if (Math.abs(currentJoystickPos.x) > 0.1 || Math.abs(currentJoystickPos.y) > 0.1) {
+                // Calculate forward/backward movement
+                moveDirection.addScaledVector(cameraDirection, -currentJoystickPos.y);
+                // Calculate left/right movement
+                moveDirection.addScaledVector(right, currentJoystickPos.x);
 
-            if (gamepad.buttons[dPadUpIndex] && gamepad.buttons[dPadUpIndex].pressed) {
-                moveDirection.add(cameraDirection);
-                dPadActive = true;
-            }
-            if (gamepad.buttons[dPadDownIndex] && gamepad.buttons[dPadDownIndex].pressed) {
-                moveDirection.sub(cameraDirection);
-                dPadActive = true;
-            }
-            if (gamepad.buttons[dPadLeftIndex] && gamepad.buttons[dPadLeftIndex].pressed) {
-                moveDirection.sub(right);
-                dPadActive = true;
-            }
-            if (gamepad.buttons[dPadRightIndex] && gamepad.buttons[dPadRightIndex].pressed) {
-                moveDirection.add(right);
-                dPadActive = true;
-            }
-
-            if (!dPadActive) {
-                if (Math.abs(leftStickX) > deadzone) {
-                    moveDirection.add(right.clone().multiplyScalar(leftStickX));
-                }
-                if (Math.abs(leftStickY) > deadzone) {
-                    moveDirection.add(cameraDirection.clone().multiplyScalar(-leftStickY));
-                }
-            }
-
-            let currentYVelocity = playerBody.velocity.y;
-
-            if (moveDirection.lengthSq() > 0) {
                 moveDirection.normalize().multiplyScalar(speed);
                 playerBody.velocity.x = moveDirection.x;
                 playerBody.velocity.z = moveDirection.z;
             } else {
+                // Decelerate if joystick is centered
                 playerBody.velocity.x = 0;
                 playerBody.velocity.z = 0;
             }
-            playerBody.velocity.y = currentYVelocity;
 
-            const isAnyJumpButtonPressed = (gamepad.buttons[0] && gamepad.buttons[0].pressed) ||
-                                           (gamepad.buttons[1] && gamepad.buttons[1].pressed) ||
-                                           (gamepad.buttons[2] && gamepad.buttons[2].pressed) ||
-                                           (gamepad.buttons[3] && gamepad.buttons[3].pressed);
-
-
-            if (isAnyJumpButtonPressed && !prevJumpButtonPressed && canJump) {
-                playerBody.velocity.y = jumpForce;
-                canJump = false;
-                if (jumpSoundBuffer) {
-                    if (jumpSound.isPlaying) {
-                        jumpSound.stop();
-                    }
-                    jumpSound.play();
-                }
-            }
-            prevJumpButtonPressed = isAnyJumpButtonPressed;
+            playerBody.velocity.y = playerBody.velocity.y; // Preserve vertical velocity
         }
 
-        // === Game Start / End Functions (for 3D game) ===
+
+        // === Game State Management ===
+        const mainMenu = document.getElementById('mainMenu');
+        const startButton = document.getElementById('startButton');
+        const miniGameButton = document.getElementById('miniGameButton');
+        const backToMainMenuButton = document.getElementById('backToMainMenuButton');
+        const messageBox = document.getElementById('messageBox');
+        const messageText = document.getElementById('messageText');
+        const restartButton = document.getElementById('restartButton');
+
+        let lastGameMode = null; // To store which game was active before message box
+
+        function showMainMenu() {
+            mainMenu.style.opacity = 1;
+            mainMenu.style.visibility = 'visible';
+            mainGameContainer.style.opacity = 0;
+            mainGameContainer.style.visibility = 'hidden';
+            miniGameContainer.style.opacity = 0;
+            miniGameContainer.style.visibility = 'hidden';
+            mobileControlsDiv.style.display = 'none'; // Hide 3D game controls
+            miniGameMobileControlsDiv.style.display = 'none'; // Hide 2D game controls
+            miniGameMobileControlsMenuButton.style.display = 'none'; // Hide mini-game control toggle
+            mobileControlsMenuButton.style.display = 'block'; // Show main game control toggle on menu
+            gameRunning = false;
+            miniGameActive = false;
+
+            if (backgroundMusic && backgroundMusic.isPlaying) {
+                pauseBackgroundMusic(); // Use the pause function
+            }
+            // Ensure mini-game music is stopped too
+            if (miniGameMusicPlayer && miniGameMusicPlayer.isPlaying) {
+                miniGameMusicPlayer.source.stop(); // Stop mini-game music
+                miniGameMusicPlayer.isPlaying = false;
+                miniGameMusicPlayer = null; // Clear the reference
+            }
+        }
+
         function startGame() {
-            gameRunning = true;
-            miniGameActive = false; // Ensure mini-game is not active
-            
             mainMenu.style.opacity = 0;
             mainMenu.style.visibility = 'hidden';
-            
             mainGameContainer.style.opacity = 1;
             mainGameContainer.style.visibility = 'visible';
-            renderer.domElement.style.display = 'block'; // Ensure 3D canvas is visible
-            fullscreenButton.style.display = 'flex'; // Show fullscreen button when game starts
-
-            playBackgroundMusic();
-            
-            if (!mobileControlsVisible) { 
-                mobileControlsDiv.style.display = 'none'; 
-                mobileControlsDiv.style.pointerEvents = 'none';
-                mobileControlsMenuButton.textContent = 'Show Mobile Controls'; 
-            } else {
-                mobileControlsDiv.style.display = 'flex'; // Ensure it's 'flex' if already visible
-                mobileControlsDiv.style.pointerEvents = 'auto';
-                updateJoystickBasePosition(); 
-            }
-            mobileControlsMenuButton.style.display = 'block'; // Always show button
-            
-            if (!animationFrameId) {
-                animate();
-            }
+            mobileControlsMenuButton.style.display = 'none'; // Hide main game control toggle
+            gameRunning = true;
+            miniGameActive = false; // Ensure mini-game is not active
+            playBackgroundMusic(); // This will resume or start if not already playing
+            resetPlayer();
+            // Ensure mobile controls are hidden initially, show only if toggled
+            mobileControlsDiv.style.display = mobileControlsVisible ? 'flex' : 'none';
         }
 
         function resetPlayer() {
             playerBody.position.copy(startPosition);
             playerBody.velocity.set(0, 0, 0);
             playerBody.angularVelocity.set(0, 0, 0);
-            canJump = false;
-            
-            if (mobileControlsVisible) {
-                isJoystickActive = false;
-                currentJoystickPos.x = 0;
-                currentJoystickPos.y = 0;
-                joystickKnob.style.left = '50%';
-                joystickKnob.style.top = '50%';
-                joystickKnob.style.transform = 'translate(-50%, -50%)';
-            }
-            prevJumpButtonPressed = false; 
+            canJump = true;
         }
 
-        // === UI Event Listeners ===
+        function showMessage(text, isWin, gameMode = '3D') { // Added gameMode parameter
+            messageText.textContent = text;
+            messageBox.style.display = 'block';
+            restartButton.textContent = isWin ? 'Play New Level' : 'Try Again';
+            gameRunning = false; // Pause 3D game
+            miniGameActive = false; // Pause 2D game
+            lastGameMode = gameMode; // Store which game was active
+
+            pauseBackgroundMusic(); // Pause 3D game music
+            if (miniGameMusicPlayer && miniGameMusicPlayer.isPlaying) {
+                miniGameMusicPlayer.source.stop(); // Stop mini-game music
+                miniGameMusicPlayer.isPlaying = false;
+            }
+        }
+
+        function hideMessage() {
+            messageBox.style.display = 'none';
+            if (lastGameMode === '3D') {
+                if (messageText.textContent.includes("win")) { // If it was a win message, regenerate level
+                    generateRandomLevel();
+                }
+                startGame(); // Resume/Restart 3D game
+            } else if (lastGameMode === '2D') {
+                startMiniGame(); // Resume/Restart 2D game
+            }
+        }
+
+
         startButton.addEventListener('click', startGame);
+        restartButton.addEventListener('click', hideMessage); // Simplified, hides and restarts the game
 
-        restartButton.addEventListener('click', () => {
-             messageBox.style.display = 'none';
-             generateRandomLevel();
-             resetPlayer();
-        });
 
-        fullscreenButton.addEventListener('click', () => {
+        // === Fullscreen Toggle ===
+        const fullscreenButton = document.getElementById('fullscreenButton');
+        function toggleFullscreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
-                    console.error(`Error attempting to enable fullscreen: ${err.message} (${err.name})`);
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
                 });
             } else {
-                document.exitFullscreen();
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
             }
-        });
+        }
+        fullscreenButton.addEventListener('click', toggleFullscreen);
 
-        // --- Game Loop (for 3D game) ---
-        let animationFrameId = null; 
-        const fixedTimeStep = 1 / 60;
+
+        // === Main Game Animation Loop ===
+        const timeStep = 1 / 60; // seconds
         let lastTime;
 
-        function animate(time) {
-            if (!gameRunning) { // If 3D game is not running, stop its loop
-                animationFrameId = null;
-                return;
+        function animate(currentTime) {
+            if (!lastTime) lastTime = currentTime;
+            const deltaTime = (currentTime - lastTime) / 1000;
+
+            if (gameRunning) {
+                world.step(timeStep, deltaTime);
+
+                playerMesh.position.copy(playerBody.position);
+                playerMesh.quaternion.copy(playerBody.quaternion);
+
+                // Make player always face the camera
+                playerMesh.lookAt(camera.position);
+
+                // Camera follows player
+                camera.position.x = playerMesh.position.x + 10;
+                camera.position.y = playerMesh.position.y + 10;
+                camera.position.z = playerMesh.position.z + 10;
+                camera.lookAt(playerMesh.position);
+
+                // Handle controls
+                handleMainGameKeyboardControls();
+                handleMainGameMobileControls();
+
+                // Check for fall off
+                if (playerMesh.position.y < -20) {
+                    showMessage("Game Over! You fell off.", false, '3D'); // Specify gameMode
+                }
             }
-
-            animationFrameId = requestAnimationFrame(animate);
-
-            if (lastTime === undefined) lastTime = time;
-            const dt = (time - lastTime) / 1000;
-            lastTime = time;
-
-            const maxVerticalSpeed = 25; 
-
-            pollGamepads(); // Always poll gamepads
-
-            // Control priority for 3D game: Gamepad > Keyboard > Mobile
-            if (gamepadInputActive) {
-                handleGamepadControls();
-            } else if (mobileControlsDiv.style.display === 'none') {
-                handleMainGameKeyboardControls(); // Use 3D game's keyboard handler
-            } else {
-                handleMobileControls(); // Use 3D game's mobile handler
-            }
-
-            world.step(fixedTimeStep, dt, 10);
-            
-            playerMesh.position.copy(playerBody.position);
-
-            const playerLookAtPos = new THREE.Vector3(camera.position.x, playerMesh.position.y, camera.position.z);
-            playerMesh.lookAt(playerLookAtPos);
-
-            const cameraOffset = new THREE.Vector3(10, 8, 10);
-            const playerPosition = playerMesh.position;
-            
-            const newCameraPosition = playerPosition.clone().add(cameraOffset);
-            
-            camera.position.lerp(newCameraPosition, 0.1);
-            
-            camera.lookAt(playerPosition);
-
-            playerBody.velocity.y = Math.max(-maxVerticalSpeed, Math.min(playerBody.velocity.y, maxVerticalSpeed));
-
-            if (playerMesh.position.y < -30) {
-                console.log("Player fell! Resetting."); 
-                resetPlayer();
-            }
-
             renderer.render(scene, camera);
+            lastTime = currentTime;
+            requestAnimationFrame(animate);
         }
+        requestAnimationFrame(animate);
 
-        // Global error handler to catch any uncaught exceptions
-        window.onerror = function(message, source, lineno, colno, error) {
-            console.error("GLOBAL ERROR HANDLER: An uncaught error occurred!");
-            console.error("Message:", message);
-            console.error("Source:", source);
-            console.error("Line:", lineno, "Column:", colno);
-            if (error) {
-                console.error("Error object:", error);
-            }
-            return true; // Prevents the default browser error handling (e.g., stopping script)
+
+        // === 2D Mini-Game Logic ===
+        const miniGameCanvas = document.getElementById('miniGameCanvas');
+        const miniGameCtx = miniGameCanvas.getContext('2d');
+        const miniGameScoreDisplay = document.getElementById('miniGameScore');
+        const miniGameContainer = document.getElementById('miniGameContainer');
+
+        const MINI_GAME_WIDTH = 800;
+        const MINI_GAME_HEIGHT = 400;
+        miniGameCanvas.width = MINI_GAME_WIDTH;
+        miniGameCanvas.height = MINI_GAME_HEIGHT;
+
+        // Mini-Game Player
+        let miniPlayer = {
+            x: 50,
+            y: MINI_GAME_HEIGHT - 30,
+            width: 20,
+            height: 20,
+            dy: 0,
+            gravity: 0.5,
+            jumpStrength: -10,
+            isJumping: false,
+            grounded: true
         };
 
+        // Mini-Game Obstacles
+        let obstacles = [];
+        let obstacleSpeed = 5;
+        let obstacleInterval = 2000; // Milliseconds
+        let lastObstacleTime = 0;
+        let minObstacleGap = 300; // Minimum horizontal gap between obstacles
 
-        // ======================================================================================================
-        // === MINI-GAME INTEGRATION LOGIC ===
-        // ======================================================================================================
+        // Mini-Game Score
+        let miniGameScore = 0;
+        let miniGameFrameCount = 0;
 
-        const miniGameContainer = document.getElementById('miniGameContainer');
-        const backToMainMenuButton = document.getElementById('backToMainMenuButton');
-        let miniGameAnimationFrameId = null; // Separate animation frame ID for mini-game
+        // Mini-Game Audio
+        const miniGameAudioListener = new AudioContext(); // Separate AudioContext for mini-game
+        let miniGameBackgroundMusicBuffer;
+        let miniGameJumpSoundBuffer;
+        let miniGameLandSoundBuffer;
+        let miniGameOverSoundBuffer;
 
-        miniGameButton.addEventListener('click', () => {
-            console.log("Mini-Game button clicked.");
-            // 1. Stop the 3D game if running
-            gameRunning = false;
-            if (animationFrameId) {
-                cancelAnimationFrame(animationFrameId);
-                animationFrameId = null;
-            }
-            if (backgroundMusic && backgroundMusic.isPlaying) {
-                backgroundMusic.pause();
-            }
+        const miniGameMusicUrl = 'https://ia800900.us.archive.org/26/items/music2_20250625/music2.mp3'; // Example mini-game music
+        const miniGameJumpSfxUrl = 'https://ia801508.us.archive.org/17/items/jump_20250625/jump.mp3';
+        const miniGameLandSfxUrl = 'https://ia801508.us.archive.org/17/items/land_20250625/land.mp3';
+        const miniGameOverSfxUrl = 'https://ia801508.us.archive.org/17/items/gameover_20250625/gameover.mp3';
 
-            // 2. Hide 3D game and main menu elements
-            mainGameContainer.style.opacity = 0;
-            mainGameContainer.style.visibility = 'hidden';
-            renderer.domElement.style.display = 'none'; 
-            
-            mainMenu.style.opacity = 0;
-            mainMenu.style.visibility = 'hidden';
+        function loadMiniGameAudio() {
+            const loadSound = (url) => {
+                return fetch(url)
+                    .then(response => response.arrayBuffer())
+                    .then(arrayBuffer => miniGameAudioListener.decodeAudioData(arrayBuffer));
+            };
 
-            messageBox.style.display = 'none';
-            mobileControlsDiv.style.display = 'none';
-            mobileControlsMenuButton.style.display = 'none'; // Hide the button
-            fullscreenButton.style.display = 'none'; // Hide the button
+            Promise.all([
+                loadSound(miniGameMusicUrl),
+                loadSound(miniGameJumpSfxUrl),
+                loadSound(miniGameLandSfxUrl),
+                loadSound(miniGameOverSfxUrl)
+            ]).then(([musicBuffer, jumpBuffer, landBuffer, gameOverBuffer]) => {
+                miniGameBackgroundMusicBuffer = musicBuffer;
+                miniGameJumpSoundBuffer = jumpBuffer;
+                miniGameLandSoundBuffer = landBuffer;
+                miniGameOverSoundBuffer = gameOverBuffer;
 
-
-            // 3. Show mini-game elements
-            miniGameContainer.style.opacity = 1;
-            miniGameContainer.style.visibility = 'visible';
-            miniGameActive = true; // Set miniGameActive to true here
-
-            // 4. Start the mini-game (initialize it)
-            initializeMiniGame();
-        });
-
-        backToMainMenuButton.addEventListener('click', () => {
-            console.log("Back to Main Menu button clicked.");
-            // 1. Stop the mini-game
-            miniGameActive = false;
-            if (miniGameAnimationFrameId) {
-                cancelAnimationFrame(miniGameAnimationFrameId);
-                miniGameAnimationFrameId = null;
-            }
-            // Ensure mini-game music is paused if it was playing (using global ref)
-            if (miniGameMusicPlayer && miniGameMusicPlayer.played.length > 0 && !miniGameMusicPlayer.paused) {
-                miniGameMusicPlayer.pause();
-                miniGameMusicPlayer.currentTime = 0; // Reset for next time
-            }
-
-
-            // 2. Hide mini-game elements
-            miniGameContainer.style.opacity = 0;
-            miniGameContainer.style.visibility = 'hidden';
-
-            // 3. Show main menu
-            mainMenu.style.opacity = 1;
-            mainMenu.style.visibility = 'visible';
-            // Ensure 3D canvas remains hidden until its game starts
-            renderer.domElement.style.display = 'none'; 
-            // Re-show mobile controls button if it was visible before switching to mini-game
-            mobileControlsMenuButton.style.display = 'block'; // Assuming it's usually visible in menu
-            fullscreenButton.style.display = 'flex'; // Assuming it's usually visible in menu
-        });
-
-
-        // === YOUR MINI-GAME CODE, WRAPPED IN A FUNCTION ===
-        function initializeMiniGame() {
-            // Re-fetch elements specific to the mini-game container
-            const canvas = document.getElementById('miniGameCanvas');
-            const ctx = canvas.getContext('2d');
-            const scoreElement = document.getElementById('miniGameScore');
-
-            if (!canvas || !ctx || !scoreElement) { console.error("Mini-game essential elements missing!"); return; }
-            canvas.width = 480; canvas.height = 320; // Set canvas size for mini-game
-
-            // --- Load Images ---
-            console.log("Mini-Game: Setting up Background Image..."); 
-            const backgroundImage = new Image(); 
-            let isBgLoaded = false; 
-            backgroundImage.onload = () => { isBgLoaded = true; console.log(">>> Mini-Game BG Img loaded successfully."); }; 
-            backgroundImage.onerror = (e) => { console.error(">>> Mini-Game FAILED to load BG Img! Path:", backgroundImage.src, "Error:", e); }; 
-            backgroundImage.src = 'images/background.png';
-
-            console.log("Mini-Game: Setting up Player Image..."); 
-            const playerImage = new Image(); 
-            let isPlayerImageLoaded = false; 
-            playerImage.onload = () => { isPlayerImageLoaded = true; console.log(">>> Mini-Game Player Img loaded successfully."); }; 
-            playerImage.onerror = (e) => { console.error(">>> Mini-Game FAILED to load Player Img! Path:", playerImage.src, "Error:", e); };
-            
-
-            // --- Setup Music ---
-            console.log("Mini-Game: Setting up Music Selection..."); 
-            const musicTracks = [ 
-                { name: "Groovy Tune", path: "audio/music1.mp3" }, 
-                { name: "Action Beat", path: "audio/music2.mp3" }, 
-                { name: "Main Game Music", path: DEFAULT_3D_MUSIC_URL }, // Add 3D game music as an option
-                { name: "Music Off", path: null } 
-            ]; 
-            let currentMusicIndex = 0; 
-            // Try to default to the 3D game's music
-            const default3DMusicIndex = musicTracks.findIndex(track => track.path === DEFAULT_3D_MUSIC_URL);
-            if (default3DMusicIndex !== -1) {
-                currentMusicIndex = default3DMusicIndex;
-            }
-            // ASSIGN TO GLOBAL MINI-GAME MUSIC PLAYER
-            miniGameMusicPlayer = new Audio(); 
-            try { miniGameMusicPlayer.loop = true; miniGameMusicPlayer.volume = 0.4; } catch (e) { console.error("Mini-Game Music Player Error:", e); miniGameMusicPlayer = null; }
-
-            // --- Setup Skins ---
-            console.log("Mini-Game: Setting up Player Skins..."); 
-            const playerSkins = [ 
-                { name: "Default", path: "images/player.png" }, 
-                { name: "Blue", path: "images/player_blue.png" }, 
-                { name: "Ninja", path: "images/player_ninja.png" },
-                { name: "Main Game Skin", path: DEFAULT_3D_PLAYER_SKIN_URL } // Add 3D game player skin as an option
-            ]; 
-            let currentSkinIndex = 0; 
-            // Try to default to the 3D game's skin
-            const default3DSkinIndex = playerSkins.findIndex(skin => skin.path === DEFAULT_3D_PLAYER_SKIN_URL);
-            if (default3DSkinIndex !== -1) {
-                currentSkinIndex = default3DSkinIndex;
-            }
-
-            if(playerSkins[currentSkinIndex] && playerSkins[currentSkinIndex].path) { 
-                playerImage.src = playerSkins[currentSkinIndex].path; 
-            } else { 
-                console.error("Mini-Game initial player skin path missing or null, falling back to first skin."); 
-                playerImage.src = playerSkins[0].path; // Fallback to the very first skin
-                currentSkinIndex = 0;
-            }
-
-            // --- Setup SFX ---
-            console.log("Mini-Game: Setting up SFX objects..."); 
-            // ASSIGN TO GLOBAL MINI-GAME SFX OBJECT
-            miniGameSfx = {}; 
-            try { 
-                miniGameSfx.jump=new Audio('audio/jump.wav'); 
-                miniGameSfx.land=new Audio('audio/land.wav'); 
-                miniGameSfx.gameOver=new Audio('audio/gameOver.wav'); 
-                if (miniGameSfx.jump) miniGameSfx.jump.volume = 0.7; 
-                if (miniGameSfx.land) miniGameSfx.land.volume = 0.6; 
-                if (miniGameSfx.gameOver) miniGameSfx.gameOver.volume = 0.8; 
-                Object.values(miniGameSfx).forEach(sound => { if (sound) sound.preload = 'auto'; }); 
-            } catch (e) { console.error("Mini-Game SFX Creation Error", e); miniGameSfx = {}; }
-
-            function playSound(sound) { 
-                // This function uses the global miniGameSfx and miniGameMusicPlayer
-                if (!sound || typeof sound.play !== 'function') { 
-                    const n=Object.keys(miniGameSfx).find(k=>miniGameSfx[k]===sound)||(sound===miniGameMusicPlayer?"Mini-Game Music Player":"unknown"); 
-                    console.warn(`Mini-Game: Invalid sound: ${n}`); 
-                    return;
-                } 
-                const s=sound.src?sound.src.split('/').pop():'Mini-Game Music Player'; 
-                if(sound !== miniGameMusicPlayer){sound.currentTime=0;} 
-                const p=sound.play(); 
-                if(p !== undefined){p.catch(e=>{console.warn(`Mini-Game Playback error ${s}:`,e);});} 
-            }
-
-            // --- Game Constants & Variables ---
-            const playerWidth = 60; const playerHeight = 60; const playerGravity = 0.5;
-            const playerJumpPower = 11; const playerMoveSpeed = 4;
-            const platformWidth = 80; const platformHeight = 10; const platformScrollSpeed = 2;
-            let player = {}; let platforms = []; let score = 0;
-            let miniGameRunning = false; // Initial state: not running, waiting for input
-            miniGameAnimationFrameId = null; // Re-initialize the global miniGameAnimationFrameId
-
-            const initialPlayerState = { x: 50, y: 50, vy: 0, onGround: false, isMovingLeft: false, isMovingRight: false };
-
-            // --- <<< DEFINE LAYOUT CONSTANTS HERE >>> ---
-            const musicOptionStartY = canvas.height / 2 + 5; // Adjusted Y position for "Press Enter" and Music options
-            const optionSpacing = 25; // Vertical space between options
-            const skinOptionStartY = musicOptionStartY + musicTracks.length * optionSpacing + 10; // Y position where skin options start drawing
-            const optionHeight = 20;  // Approx clickable height for options
-            
-            // NEW: Mini-Game Start Button properties (FIXED POSITION)
-            const miniGameStartButtonWidth = 160;
-            const miniGameStartButtonHeight = 50;
-            const miniGameStartButtonX = (canvas.width / 2) - (miniGameStartButtonWidth / 2);
-            const miniGameStartButtonY = canvas.height - miniGameStartButtonHeight - 20; // 20px from bottom edge
-
-            console.log("Mini-Game: Layout constants defined."); 
-            // --- <<< END LAYOUT CONSTANTS >>> ---
-
-            // --- Drawing Helper ---
-            function drawBackground() { if (typeof isBgLoaded !=='undefined' && isBgLoaded && backgroundImage.complete && backgroundImage.naturalHeight !== 0) { ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height); } else { ctx.fillStyle = '#87CEEB'; ctx.fillRect(0, 0, canvas.width, canvas.height); } }
-
-            // --- Player Functions ---
-            function updatePlayer() { 
-                if (!miniGameRunning) return; 
-                try { 
-                    // player.onGround is now correctly handled in checkCollisions
-                    
-                    let dx = 0;
-                    if (player.isMovingLeft) {
-                        dx -= playerMoveSpeed;
-                        console.log("Mini-Game: Player isMovingLeft detected. dx =", dx);
+                // Wrapper function to play sounds
+                miniGameSfx.play = (buffer, loop = false, volume = 1.0) => {
+                    if (miniGameAudioListener.state === 'suspended') {
+                        miniGameAudioListener.resume();
                     }
-                    if (player.isMovingRight) {
-                        dx += playerMoveSpeed;
-                        console.log("Mini-Game: Player isMovingRight detected. dx =", dx);
-                    }
-                    
-                    if (dx !== 0) {
-                        player.x += dx;
-                        console.log("Mini-Game: Player X updated to:", player.x, "by dx:", dx);
-                    } else {
-                        // console.log("Mini-Game: Player not moving horizontally."); // Too chatty, uncomment if needed
-                    }
+                    const source = miniGameAudioListener.createBufferSource();
+                    source.buffer = buffer;
+                    source.loop = loop;
+                    const gainNode = miniGameAudioListener.createGain();
+                    gainNode.gain.value = volume;
+                    source.connect(gainNode);
+                    gainNode.connect(miniGameAudioListener.destination);
+                    source.start(0);
+                    return { source, gainNode, isPlaying: true }; // Return source and gainNode for control
+                };
+                console.log("Mini-game audio loaded.");
+            }).catch(e => {
+                console.error("Error loading mini-game audio:", e);
+                // Fallback for mini-game sfx if loading fails
+                miniGameSfx.play = () => { return {isPlaying: false}; }; // Mute if audio fails
+            });
+        }
+        loadMiniGameAudio();
 
-                    if (player.x < 0) player.x = 0; 
-                    if (player.x + playerWidth > canvas.width) player.x = canvas.width - playerWidth; 
-                    
-                    player.vy += playerGravity; 
-                    player.y += player.vy; 
 
-                    // Ensure player.y does not go above the top of the canvas (prevents flying off screen upwards)
-                    if (player.y < 0) player.y = 0;
-
-                } catch (e) { 
-                    console.error("Mini-Game Error: updatePlayer:", e); miniGameOver(); 
-                } 
+        function playMiniGameMusic() {
+            if (miniGameBackgroundMusicBuffer && miniGameAudioListener.state === 'suspended') {
+                miniGameAudioListener.resume();
             }
-            function drawPlayer() { if(!player || typeof player.x !== 'number') return; try { if (typeof isPlayerImageLoaded !=='undefined' && isPlayerImageLoaded && playerImage.complete && playerImage.naturalHeight !== 0) { ctx.drawImage(playerImage, player.x, player.y, playerWidth, playerHeight); } else { ctx.fillStyle = 'red'; ctx.fillRect(player.x, player.y, playerWidth, playerHeight); } } catch (e) { console.error("Mini-Game Error: drawPlayer:", e); ctx.fillStyle='red'; ctx.fillRect(player.x, player.y, playerWidth, playerHeight);}}
-            function playerJump() { if (miniGameRunning && player.onGround) { player.vy = -playerJumpPower; player.onGround = false; if (miniGameSfx.jump) playSound(miniGameSfx.jump); else console.warn(">>> Mini-Game sfx.jump missing!"); } }
-
-            // --- Platform Functions ---
-            function initializePlatforms() { platforms = []; platforms.push({ x: 0, y: canvas.height - 30, width: canvas.width * 1.5, height: platformHeight }); let c = platforms[0].x + platforms[0].width * 0.7; for (let i = 1; i < 8; i++) c = addPlatform(c); }
-            function addPlatform(minX) { let nX = minX + Math.random() * 100 + 70, nY = canvas.height - 50 - Math.random() * 140; if (nY < 50) nY = 50; let nW = platformWidth + Math.random() * 40; platforms.push({ x: nX, y: nY, width: nW, height: platformHeight }); return nX + nW; }
-            function updatePlatforms() { if (!miniGameRunning) return; try { let r = 0; for (let i = platforms.length - 1; i >= 0; i--) { const p = platforms[i]; p.x -= platformScrollSpeed; if (p.x + p.width < 0) { platforms.splice(i, 1); score += 10; } else { if (p.x + p.width > r) r = p.x + p.width; } } while (r < canvas.width + platformWidth * 2) r = addPlatform(r); } catch (e) { console.error("Mini-Game Error: updatePlatforms:", e); miniGameOver(); } }
-            function drawPlatforms() { try { ctx.fillStyle = 'green'; platforms.forEach(p => { ctx.fillRect(p.x, p.y, p.width, p.height); }); } catch (e) { console.error("Mini-Game Error: drawPlatforms:", e); } }
-
-            // --- Collision Detection ---
-            function checkCollisions() { 
-                if (!miniGameRunning) return; 
-                try { 
-                    let landedOnPlatformInThisFrame = false; 
-                    const prevOnGround = player.onGround; 
-
-                    // Reset onGround at the start of collision check to determine if a new landing occurs
-                    player.onGround = false; 
-
-                    platforms.forEach(p => { 
-                        let playerBottom = player.y + playerHeight; 
-                        let playerPrevBottom = player.y - player.vy + playerHeight; 
-                        if(player.vy>=0 && playerBottom>=p.y && playerPrevBottom<=p.y+1 && player.x+playerWidth>p.x && player.x<p.x+p.width){
-                            player.y=p.y-playerHeight; 
-                            player.vy=0; 
-                            landedOnPlatformInThisFrame=true;
-                        }
-                    }); 
-                    
-                    player.onGround = landedOnPlatformInThisFrame; // Set based on current frame's landings
-                    
-                    if(player.y+playerHeight>=canvas.height && !player.onGround){miniGameOver();} 
-                    
-                    if(player.onGround && !prevOnGround){ 
-                        console.log(`Mini-Game LANDING DETECTED.`); 
-                        if(miniGameSfx.land)playSound(miniGameSfx.land); 
-                    } 
-                } catch(e){console.error("Mini-Game Error: checkCollisions:",e);miniGameOver();}
+            if (!miniGameMusicPlayer || !miniGameMusicPlayer.isPlaying) {
+                if (miniGameBackgroundMusicBuffer) {
+                    miniGameMusicPlayer = miniGameSfx.play(miniGameBackgroundMusicBuffer, true, 0.4);
+                    console.log("Mini-game music started.");
+                }
+            } else if (miniGameMusicPlayer && miniGameAudioListener.state === 'running') {
+                 // If already playing and context is running, do nothing, it's looping
             }
-
-            // --- Game State Functions (for 2D mini-game) ---
-            function miniGameOver() {
-                if (!miniGameRunning) return;
-                console.log("Mini-Game Over");
-                miniGameRunning = false;
-                if (miniGameAnimationFrameId) { cancelAnimationFrame(miniGameAnimationFrameId); miniGameAnimationFrameId = null; }
-                if (miniGameMusicPlayer) miniGameMusicPlayer.pause(); // Use global ref
-                if (miniGameSfx.gameOver) playSound(miniGameSfx.gameOver); // Use global ref
-                // Display game over text on the mini-game canvas
-                setTimeout(() => {
-                    ctx.font = '30px Arial';
-                    ctx.fillStyle = 'red';
-                    ctx.textAlign = 'center';
-                    ctx.fillText("GAME OVER!", canvas.width / 2, canvas.height / 2);
-                    ctx.font = '20px Arial';
-                    ctx.fillStyle = 'white';
-                    ctx.fillText("Press 'Enter' or Click 'START' to Restart", canvas.width / 2, canvas.height / 2 + 30); // Updated text
-                    showMiniGameStartScreen(); // Re-draw start screen for restart button
-                }, 50);
-            }
-
-            function miniGameRestart() {
-                console.log("--- Mini-Game restartGame() CALLED ---");
-                try {
-                    score = 0;
-                    scoreElement.textContent = 'Score: ' + score;
-                    player = { ...initialPlayerState };
-                    initializePlatforms();
-                    miniGameRunning = true; // Set to true here!
-                    const selectedTrack = musicTracks[currentMusicIndex];
-                    if (miniGameMusicPlayer && selectedTrack && selectedTrack.path) { // Use global ref
-                        let currentSrcBase = miniGameMusicPlayer.src.split('/').pop();
-                        let requiredSrcBase = selectedTrack.path.split('/').pop();
-                        if (miniGameMusicPlayer.paused || currentSrcBase !== requiredSrcBase) {
-                            miniGameMusicPlayer.src = selectedTrack.path;
-                            miniGameMusicPlayer.load();
-                            playSound(miniGameMusicPlayer);
-                        } else if (miniGameMusicPlayer.paused) {
-                            playSound(miniGameMusicPlayer);
-                        }
-                        console.log("--- Mini-Game: Attempted music:", selectedTrack.name);
-                    } else {
-                        if (miniGameMusicPlayer) miniGameMusicPlayer.pause(); // Use global ref
-                        console.log("--- Mini-Game: No music selected.");
-                    }
-                    if (miniGameAnimationFrameId) cancelAnimationFrame(miniGameAnimationFrameId);
-                    miniGameLoop();
-                    console.log("Mini-game restart successful and loop started.");
-                } catch (e) { 
-                    console.error("!!! Mini-Game Error inside restartGame !!!", e); 
-                    miniGameRunning = false; 
-                    // Display error message on canvas too if possible
-                    ctx.font = '24px Arial'; ctx.fillStyle = 'red'; ctx.textAlign = 'center';
-                    ctx.fillText("ERROR STARTING GAME", canvas.width / 2, canvas.height / 2);
-                }
-            }
-
-            // --- Input Handling for Mini-Game (internal handler) ---
-            function handleMiniGameKeyDown(e) {
-                console.log("handleMiniGameKeyDown called for:", e.key, "miniGameRunning:", miniGameRunning);
-                
-                // Check if the game is not running and 'Enter' is pressed
-                if (!miniGameRunning && e.key === 'Enter') {
-                    console.log("Mini-game restart triggered by Enter key!");
-                    miniGameRestart();
-                    return; // Important: consume the event if restart is triggered
-                }
-                
-                // If the game is not running (and it wasn't 'Enter'), ignore other keys
-                if (!miniGameRunning) {
-                    console.log("Mini-game not running, ignoring key:", e.key);
-                    return;
-                }
-
-                // Process game controls only if mini-game is running
-                switch (e.key) {
-                    case 'ArrowLeft': case 'a': player.isMovingLeft = true; break;
-                    case 'ArrowRight': case 'd': player.isMovingRight = true; break;
-                    case ' ': case 'ArrowUp': case 'w': playerJump(); break;
-                }
-            }
-            function handleMiniGameKeyUp(e) {
-                console.log("handleMiniGameKeyUp called for:", e.key);
-                if (!miniGameRunning) return; // Don't process other keys if not running
-
-                switch (e.key) {
-                    case 'ArrowLeft': case 'a': player.isMovingLeft = false; break;
-                    case 'ArrowRight': case 'd': player.isMovingRight = false; break;
-                }
-            }
-
-            // --- Music Select Click Listener for Mini-Game ---
-            function handleMiniGameCanvasClick(event) {
-                if (miniGameRunning) return; // Don't allow clicks during active game
-                const rect = canvas.getBoundingClientRect();
-                const clickX = event.clientX - rect.left;
-                const clickY = event.clientY - rect.top;
-                let selectionChanged = false;
-
-                // Handle Music Selection
-                musicTracks.forEach((track, index) => {
-                    // Adjusted optionY to consider the "Press Enter" text above
-                    const optionY = musicOptionStartY + index * optionSpacing; 
-                    ctx.font = '18px Arial';
-                    const textWidth = ctx.measureText(track.name).width;
-                    const optionX = canvas.width / 2 - textWidth / 2;
-                    const optionHeightAdjusted = optionHeight; 
-                    const optionMinY = optionY - (optionHeightAdjusted / 2); // Center click area vertically on text
-                    const optionMaxY = optionY + (optionHeightAdjusted / 2);
-
-                    if (clickX >= optionX && clickX <= optionX + textWidth &&
-                        clickY >= optionMinY && clickY <= optionMaxY) {
-                        if (index !== currentMusicIndex) {
-                            console.log("Mini-Game: Selected music:", track.name);
-                            currentMusicIndex = index;
-                            if (miniGameMusicPlayer) { // Use global ref
-                                miniGameMusicPlayer.pause();
-                                if (track.path) {
-                                    miniGameMusicPlayer.src = track.path;
-                                    miniGameMusicPlayer.load();
-                                } else {
-                                    miniGameMusicPlayer.src = "";
-                                }
-                            }
-                            selectionChanged = true;
-                        }
-                        return;
-                    }
-                });
-                
-                if (selectionChanged) {
-                    showMiniGameStartScreen();
-                    return;
-                }
-
-                // Handle Skin Selection
-                playerSkins.forEach((skin, index) => {
-                    const optionY = skinOptionStartY + index * optionSpacing; 
-                    ctx.font = '18px Arial';
-                    const textWidth = ctx.measureText(skin.name).width;
-                    const optionX = canvas.width / 2 - textWidth / 2;
-                    const optionHeightAdjusted = optionHeight;
-                    const optionMinY = optionY - (optionHeightAdjusted / 2);
-                    const optionMaxY = optionY + (optionHeightAdjusted / 2);
-
-                    if (clickX >= optionX && clickX <= optionX + textWidth &&
-                        clickY >= optionMinY && clickY <= optionMaxY) {
-                        if (index !== currentSkinIndex) {
-                            console.log("Mini-Game: Selected skin:", skin.name);
-                            currentSkinIndex = index;
-                            isPlayerImageLoaded = false;
-                            if (playerSkins[currentSkinIndex] && playerSkins[currentSkinIndex].path) {
-                                playerImage.src = playerSkins[currentSkinIndex].path;
-                            } else {
-                                console.error("Mini-Game: Invalid skin path!");
-                                playerImage.src = '';
-                            }
-                            selectionChanged = true;
-                        }
-                        return;
-                    }
-                });
-                if (selectionChanged) {
-                    showMiniGameStartScreen();
-                    return; // Return after handling skin selection to prevent immediate start if start button not clicked
-                }
-
-                // NEW: Handle Start Button Click
-                if (clickX >= miniGameStartButtonX && clickX <= miniGameStartButtonX + miniGameStartButtonWidth &&
-                    clickY >= miniGameStartButtonY && clickY <= miniGameStartButtonY + miniGameStartButtonHeight) {
-                    console.log("Mini-Game: Start button clicked!");
-                    miniGameRestart();
-                }
-            }
-            // Add click listener only when mini-game starts
-            canvas.addEventListener('click', handleMiniGameCanvasClick);
-
-            // --- Game Loop (for 2D mini-game) ---
-            function miniGameLoop() {
-                if (!miniGameRunning) {
-                    if (miniGameAnimationFrameId) { cancelAnimationFrame(miniGameAnimationFrameId); miniGameAnimationFrameId = null; }
-                    return;
-                }
-                ctx.clearRect(0,0,canvas.width,canvas.height);
-                drawBackground();
-                updatePlayer();
-                updatePlatforms();
-                checkCollisions();
-                drawPlatforms();
-                drawPlayer();
-                scoreElement.textContent='Score: '+score;
-                miniGameAnimationFrameId=requestAnimationFrame(miniGameLoop);
-            }
-
-            // --- Initial Display Function Definition for Mini-Game ---
-            function showMiniGameStartScreen() {
-                try {
-                    console.log("Mini-Game: Showing Start Screen (Checking layout vars)...");
-                    drawBackground();
-                    ctx.font = '24px Arial'; ctx.fillStyle = 'white'; ctx.textAlign = 'center';
-                    ctx.shadowColor = 'black'; ctx.shadowBlur = 2;
-                    // Adjusted Y position for "Press 'Enter'" text
-                    ctx.fillText("Press 'Enter' to Start Mini-Game", canvas.width / 2, canvas.height / 2 - 30);
-                    
-                    ctx.font = '20px Arial';
-                    ctx.fillText("Select Music:", canvas.width/2, musicOptionStartY - 5); // Adjusted for clarity
-                    if(typeof musicTracks !== 'undefined' && Array.isArray(musicTracks)) {
-                        musicTracks.forEach((track, index) => {
-                            const optionY = musicOptionStartY + index * optionSpacing; 
-                            ctx.fillStyle = (index === currentMusicIndex) ? 'yellow' : 'white';
-                            ctx.font = '18px Arial';
-                            ctx.fillText(track.name, canvas.width / 2, optionY);
-                        });
-                    } else { console.error("Mini-Game musicTracks array is missing!"); }
-
-                    ctx.font = '20px Arial'; ctx.fillStyle = 'white';
-                    ctx.fillText("Select Skin:", canvas.width / 2, skinOptionStartY - 5); // Adjusted for clarity
-                    if(typeof playerSkins !== 'undefined' && Array.isArray(playerSkins)) {
-                        playerSkins.forEach((skin, index) => {
-                            const optionY = skinOptionStartY + index * optionSpacing; 
-                            ctx.fillStyle = (index === currentSkinIndex) ? 'lime' : 'white';
-                            ctx.font = '18px Arial';
-                            ctx.fillText(skin.name, canvas.width / 2, optionY);
-                        });
-                    } else { console.error("Mini-Game playerSkins array is missing!"); }
-
-                    // NEW: Draw the Start Game button
-                    ctx.fillStyle = 'rgba(0, 150, 0, 0.8)'; // Green button background
-                    ctx.fillRect(miniGameStartButtonX, miniGameStartButtonY, miniGameStartButtonWidth, miniGameStartButtonHeight);
-                    ctx.strokeStyle = 'white';
-                    ctx.lineWidth = 3;
-                    ctx.strokeRect(miniGameStartButtonX, miniGameStartButtonY, miniGameStartButtonWidth, miniGameStartButtonHeight);
-                    
-                    ctx.font = '30px "Luckiest Guy", cursive'; // Use a fun font
-                    ctx.fillStyle = 'white';
-                    ctx.fillText("START", canvas.width / 2, miniGameStartButtonY + miniGameStartButtonHeight / 2 + 10); // Center text
-                    
-                    ctx.shadowBlur = 0; scoreElement.textContent = 'Score: 0';
-                    console.log("Mini-Game showStartScreen finished.");
-                } catch (e) { console.error("Mini-Game Error in showStartScreen:", e); scoreElement.textContent = "Error: Start Fail"; }
-            }
-
-            // Initial Call for mini-game: Show start screen, wait for 'Enter' or Click
-            showMiniGameStartScreen();
-            console.log("Mini-Game script initialized. Waiting for Enter/Click.");
         }
 
+        function stopMiniGameMusic() {
+            if (miniGameMusicPlayer && miniGameMusicPlayer.source) {
+                miniGameMusicPlayer.source.stop();
+                miniGameMusicPlayer.isPlaying = false;
+                miniGameMusicPlayer = null; // Clear the reference
+                console.log("Mini-game music stopped.");
+            }
+        }
 
-        // === CENTRALIZED GLOBAL KEYBOARD LISTENERS ===
-        // These listeners will check the global game state flags to dispatch to the correct game's handler.
-        window.addEventListener('keydown', (event) => {
-            console.log("Global keydown:", event.key, "miniGameActive:", miniGameActive, "gameRunning:", gameRunning);
+        function initMiniGame() {
+            miniPlayer = {
+                x: 50,
+                y: MINI_GAME_HEIGHT - 30,
+                width: 20,
+                height: 20,
+                dy: 0,
+                gravity: 0.5,
+                jumpStrength: -10,
+                isJumping: false,
+                grounded: true
+            };
+            obstacles = [];
+            miniGameScore = 0;
+            miniGameFrameCount = 0;
+            miniGameScoreDisplay.textContent = `Score: ${miniGameScore}`;
+            lastObstacleTime = 0; // Reset obstacle timer
+            obstacleSpeed = 5; // Reset speed
+            obstacleInterval = 2000; // Reset interval
+        }
 
+        function drawMiniGame() {
+            miniGameCtx.clearRect(0, 0, MINI_GAME_WIDTH, MINI_GAME_HEIGHT);
+
+            // Draw player
+            miniGameCtx.fillStyle = 'blue';
+            miniGameCtx.fillRect(miniPlayer.x, miniPlayer.y, miniPlayer.width, miniPlayer.height);
+
+            // Draw obstacles
+            miniGameCtx.fillStyle = 'red';
+            obstacles.forEach(obstacle => {
+                miniGameCtx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+            });
+
+            // Draw ground
+            miniGameCtx.fillStyle = 'green';
+            miniGameCtx.fillRect(0, MINI_GAME_HEIGHT - 10, MINI_GAME_WIDTH, 10); // Simple ground line
+        }
+
+        function updateMiniGame(deltaTime) {
+            miniPlayer.dy += miniPlayer.gravity;
+            miniPlayer.y += miniPlayer.dy;
+
+            // Ground collision
+            if (miniPlayer.y >= MINI_GAME_HEIGHT - miniPlayer.height - 10) {
+                if (!miniPlayer.grounded) {
+                    if (miniGameLandSoundBuffer) miniGameSfx.play(miniGameLandSoundBuffer, false, 0.7);
+                }
+                miniPlayer.y = MINI_GAME_HEIGHT - miniPlayer.height - 10;
+                miniPlayer.dy = 0;
+                miniPlayer.isJumping = false;
+                miniPlayer.grounded = true;
+            } else {
+                miniPlayer.grounded = false;
+            }
+
+            // Move obstacles
+            obstacles.forEach(obstacle => {
+                obstacle.x -= obstacleSpeed;
+            });
+
+            // Remove off-screen obstacles
+            obstacles = obstacles.filter(obstacle => obstacle.x + obstacle.width > 0);
+
+            // Generate new obstacles
+            const currentTime = Date.now();
+            if (currentTime - lastObstacleTime > obstacleInterval) {
+                const lastObstacleX = obstacles.length > 0 ? obstacles[obstacles.length - 1].x : MINI_GAME_WIDTH;
+                const nextObstacleX = lastObstacleX + Math.random() * (MINI_GAME_WIDTH / 2) + minObstacleGap;
+
+                // Ensure it's not too close to the edge or previous obstacle
+                if (nextObstacleX > MINI_GAME_WIDTH - 50 && nextObstacleX < MINI_GAME_WIDTH + 100) {
+                    const obstacleWidth = Math.random() * 20 + 20;
+                    const obstacleHeight = Math.random() * 30 + 20;
+                    obstacles.push({
+                        x: MINI_GAME_WIDTH, // Always start from right edge
+                        y: MINI_GAME_HEIGHT - obstacleHeight - 10,
+                        width: obstacleWidth,
+                        height: obstacleHeight
+                    });
+                    lastObstacleTime = currentTime;
+                    obstacleInterval = Math.max(800, obstacleInterval - 10); // Make it slightly faster over time
+                    obstacleSpeed = Math.min(10, obstacleSpeed + 0.05); // Gradually increase speed
+                }
+            }
+
+            // Collision detection
+            obstacles.forEach(obstacle => {
+                if (miniPlayer.x < obstacle.x + obstacle.width &&
+                    miniPlayer.x + miniPlayer.width > obstacle.x &&
+                    miniPlayer.y < obstacle.y + obstacle.height &&
+                    miniPlayer.y + miniPlayer.height > obstacle.y) {
+                    // Collision detected! Game Over
+                    gameOverMiniGame();
+                }
+            });
+
+            // Update score
+            miniGameFrameCount++;
+            if (miniGameFrameCount % 60 === 0) { // Update score every second (assuming 60fps)
+                miniGameScore++;
+                miniGameScoreDisplay.textContent = `Score: ${miniGameScore}`;
+            }
+        }
+
+        let miniGameAnimationFrameId;
+        function miniGameLoop(currentTime) {
+            if (!miniGameActive) return;
+
+            const deltaTime = (currentTime - (miniGameLoop.lastTime || currentTime)) / 1000;
+            miniGameLoop.lastTime = currentTime;
+
+            updateMiniGame(deltaTime);
+            drawMiniGame();
+            miniGameAnimationFrameId = requestAnimationFrame(miniGameLoop);
+        }
+
+        function startMiniGame() {
+            mainMenu.style.opacity = 0;
+            mainMenu.style.visibility = 'hidden';
+            miniGameContainer.style.opacity = 1;
+            miniGameContainer.style.visibility = 'visible';
+            miniGameMobileControlsMenuButton.style.display = 'block'; // Show mini-game control toggle
+            mobileControlsMenuButton.style.display = 'none'; // Hide main game control toggle
+            gameRunning = false; // Ensure main game is not running
+            miniGameActive = true;
+            initMiniGame();
+            playMiniGameMusic();
+            miniGameLoop.lastTime = performance.now(); // Initialize lastTime for smooth delta
+            miniGameAnimationFrameId = requestAnimationFrame(miniGameLoop);
+            miniGameMobileControlsDiv.style.display = miniGameMobileControlsVisible ? 'flex' : 'none';
+        }
+
+        function gameOverMiniGame() {
+            miniGameActive = false;
+            cancelAnimationFrame(miniGameAnimationFrameId);
+            stopMiniGameMusic();
+            if (miniGameOverSoundBuffer) miniGameSfx.play(miniGameOverSoundBuffer, false, 0.8);
+            showMessage(`Mini-Game Over! Your score: ${miniGameScore}`, false, '2D'); // Specify gameMode
+            miniGameMobileControlsDiv.style.display = 'none'; // Hide controls on game over
+            miniGameMobileControlsMenuButton.style.display = 'none'; // Hide control toggle on game over
+        }
+
+        miniGameButton.addEventListener('click', startMiniGame);
+
+        backToMainMenuButton.addEventListener('click', () => {
             if (miniGameActive) {
-                handleMiniGameKeyDown(event);
-            } else if (gameRunning && !gamepadInputActive && mobileControlsDiv.style.display === 'none') {
-                handleKeyDown(event); // 3D game handler
-            } else if (event.key === 'Enter' && !gameRunning && !miniGameActive) {
-                // Special case: Press Enter on main menu to start 3D game
-                console.log("Attempting to start 3D game from main menu via Enter.");
-                startGame();
+                cancelAnimationFrame(miniGameAnimationFrameId); // Stop the mini-game loop
+                miniGameActive = false;
+            }
+            stopMiniGameMusic();
+            showMainMenu();
+        });
+
+        // --- Mini-Game Mobile Controls Logic ---
+        const miniGameMobileControlsDiv = document.getElementById('mini-game-mobile-controls');
+        const miniJumpButton = document.getElementById('mini-jump-button');
+        const miniMobileControlsMenuButton = document.getElementById('miniGameMobileControlsMenuButton');
+
+        const miniJoystickBase = document.getElementById('mini-joystick-base');
+        const miniJoystickKnob = document.getElementById('mini-joystick-knob');
+
+        let isMiniJoystickActive = false;
+        let miniJoystickCenter = { x: 0, y: 0 };
+        let miniMaxJoystickDistance = miniJoystickBase.offsetWidth / 2 - miniJoystickKnob.offsetWidth / 2;
+        let currentMiniJoystickPos = { x: 0, y: 0 };
+
+        function updateMiniJoystickBasePosition() {
+            const rect = miniJoystickBase.getBoundingClientRect();
+            miniJoystickCenter.x = rect.left + rect.width / 2;
+            miniJoystickCenter.y = rect.top + rect.height / 2;
+            miniMaxJoystickDistance = miniJoystickBase.offsetWidth / 2 - miniJoystickKnob.offsetWidth / 2;
+            miniJoystickKnob.style.left = '50%';
+            miniJoystickKnob.style.top = '50%';
+            miniJoystickKnob.style.transform = 'translate(-50%, -50%)';
+        }
+
+        miniJoystickBase.addEventListener('touchstart', (e) => {
+            if (!miniGameActive) return;
+            e.preventDefault();
+            isMiniJoystickActive = true;
+            updateMiniJoystickBasePosition();
+            const touch = e.touches[0];
+            moveMiniJoystickKnob(touch.clientX, touch.clientY);
+        });
+
+        miniJoystickBase.addEventListener('touchmove', (e) => {
+            if (!isMiniJoystickActive || !miniGameActive) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            moveMiniJoystickKnob(touch.clientX, touch.clientY);
+        });
+
+        miniJoystickBase.addEventListener('touchend', () => {
+            isMiniJoystickActive = false;
+            resetMiniJoystickKnob();
+            currentMiniJoystickPos = { x: 0, y: 0 };
+        });
+
+        function moveMiniJoystickKnob(clientX, clientY) {
+            let offsetX = clientX - miniJoystickCenter.x;
+            let offsetY = clientY - miniJoystickCenter.y;
+
+            const distance = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
+
+            if (distance > miniMaxJoystickDistance) {
+                offsetX = (offsetX / distance) * miniMaxJoystickDistance;
+                offsetY = (offsetY / distance) * miniMaxJoystickDistance;
+            }
+
+            miniJoystickKnob.style.left = `${miniJoystickKnob.offsetLeft + offsetX - (miniJoystickKnob.offsetWidth / 2)}px`;
+            miniJoystickKnob.style.top = `${miniJoystickKnob.offsetTop + offsetY - (miniJoystickKnob.offsetHeight / 2)}px`;
+
+            currentMiniJoystickPos.x = offsetX / miniMaxJoystickDistance;
+            currentMiniJoystickPos.y = offsetY / miniMaxJoystickDistance;
+
+            miniJoystickKnob.style.transform = `translate(${offsetX - miniJoystickKnob.offsetWidth / 2}px, ${offsetY - miniJoystickKnob.offsetHeight / 2}px)`;
+        }
+
+        function resetMiniJoystickKnob() {
+            miniJoystickKnob.style.transform = 'translate(-50%, -50%)';
+            miniJoystickKnob.style.left = '50%';
+            miniJoystickKnob.style.top = '50%';
+        }
+
+        let miniGameMobileControlsVisible = false;
+        miniMobileControlsMenuButton.addEventListener('click', () => {
+            miniGameMobileControlsVisible = !miniGameMobileControlsVisible;
+            miniGameMobileControlsDiv.style.display = miniGameMobileControlsVisible ? 'flex' : 'none';
+            if (miniGameMobileControlsVisible) {
+                updateMiniJoystickBasePosition();
             }
         });
 
-        window.addEventListener('keyup', (event) => {
-            console.log("Global keyup:", event.key, "miniGameActive:", miniGameActive, "gameRunning:", gameRunning);
-            if (miniGameActive) {
-                handleMiniGameKeyUp(event);
-            } else if (gameRunning && !gamepadInputActive && mobileControlsDiv.style.display === 'none') {
-                handleKeyUp(event); // 3D game handler
+        miniJumpButton.addEventListener('click', () => {
+            if (miniGameActive) { // Only allow jump if mini-game is active
+                handleMobileJump('2D'); // Use the generalized jump handler
             }
         });
 
-        // === Initial Setup When Page Loads ===
-        // Hide game containers, show main menu initially
-        mainGameContainer.style.opacity = 0;
-        mainGameContainer.style.visibility = 'hidden';
-        renderer.domElement.style.display = 'none'; // Explicitly hide Three.js canvas
+        // Add keyboard controls for mini-game (if needed, this will override mobile for testing on desktop)
+        document.addEventListener('keydown', (e) => {
+            if (miniGameActive) {
+                if (e.code === 'Space' && !miniPlayer.isJumping && miniPlayer.grounded) {
+                    handleMobileJump('2D'); // Use the generalized jump handler
+                }
+            } else if (gameRunning) { // Main game keyboard controls
+                handleKeyDown(e);
+            }
+        });
 
-        miniGameContainer.style.opacity = 0;
-        miniGameContainer.style.visibility = 'hidden';
+        document.addEventListener('keyup', (e) => {
+            if (gameRunning) { // Main game keyboard controls
+                handleKeyUp(e);
+            }
+        });
 
-        mainMenu.style.opacity = 1;
-        mainMenu.style.visibility = 'visible'; // Main menu should be visible
-        
-        mobileControlsDiv.style.display = 'none'; // Mobile controls hidden by default
-        mobileControlsMenuButton.style.display = 'block'; // Show button to toggle mobile controls
-        fullscreenButton.style.display = 'flex'; // Show fullscreen button on main menu
 
+        // Initial setup
+        showMainMenu(); // Show main menu on page load
     </script>
 </body>
 </html>
