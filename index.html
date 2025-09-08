@@ -950,6 +950,19 @@
             console.error('An error occurred loading the jump sound:', err);
         });
 
+        // --- Game Over Sound Setup (Main Game) ---
+        const gameOverSound = new THREE.Audio(listener);
+        const gameOverSoundUrl = 'https://ia600700.us.archive.org/13/items/gameover_202507/gameOver.mp3';
+        let gameOverSoundBuffer = null;
+
+        audioLoader.load(gameOverSoundUrl, function(buffer) {
+            gameOverSoundBuffer = buffer;
+            gameOverSound.setBuffer(gameOverSoundBuffer);
+            gameOverSound.setVolume(0.8);
+        }, undefined, function(err) {
+            console.error('An error occurred loading the game over sound:', err);
+        });
+
 
         // === Keyboard Controls (Main Game's internal handler) ===
         const keys = {}; // Moved keys into main game scope
@@ -1428,6 +1441,9 @@
 
                 // Check for fall off
                 if (playerMesh.position.y < -20) {
+                    if (gameOverSoundBuffer && !gameOverSound.isPlaying) {
+                        gameOverSound.play();
+                    }
                     showMessage("Game Over! You fell off.", false, '3D'); // Specify gameMode
                 }
             }
