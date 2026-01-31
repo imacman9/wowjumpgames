@@ -12,11 +12,6 @@ Your browser does not support the audio element.
 </body>
 </html>
 
-
-
-
-
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,6 +31,52 @@ Your browser does not support the audio element.
         }
         canvas {
             display: block;
+        }
+
+        /* --- INTRO SCREEN STYLES (NEW) --- */
+        #introScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 9999; /* Sit on top of everything */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #introClickOverlay {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #introButton {
+            padding: 20px 50px;
+            font-size: 2.5em;
+            color: white;
+            font-family: 'Luckiest Guy', cursive;
+            background: linear-gradient(to bottom, #7DCFFF 0%, #3C9AF7 100%);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(60, 154, 247, 0.8);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+
+        #introButton:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to bottom, #8CDFFF 0%, #4CAAF7 100%);
+        }
+
+        #introVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Keep aspect ratio */
+            display: none; /* Hidden until clicked */
         }
 
         /* --- Main Menu Styles --- */
@@ -67,8 +108,11 @@ Your browser does not support the audio element.
             font-family: 'Luckiest Guy', 'Kalam', 'Comic Sans MS', cursive, sans-serif;
             transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
             color: #E0FFFF;
-            opacity: 1;
-            visibility: visible;
+            
+            /* Changed to hidden initially for the intro video */
+            opacity: 0; 
+            visibility: hidden;
+
             /* Adding a subtle glassy overlay for the menu itself */
             background-color: rgba(0, 50, 100, 0.2); /* A very subtle blue tint */
             backdrop-filter: blur(5px); /* Key to the glassy look */
@@ -671,6 +715,16 @@ Your browser does not support the audio element.
     </style>
 </head>
 <body>
+    <div id="introScreen">
+        <div id="introClickOverlay">
+            <button id="introButton">CLICK TO START</button>
+        </div>
+        <video id="introVideo" playsinline>
+            <source src="https://ia601808.us.archive.org/12/items/screen-capture-2-online-video-cutter.com/screen-capture%20%282%29%20%28online-video-cutter.com%29.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <div id="mainGameContainer">
         <div id="messageBox">
             <h2 id="messageText"></h2>
@@ -1847,9 +1901,45 @@ Your browser does not support the audio element.
             }
         });
 
+        // === Intro Sequence Logic ===
+        const introScreen = document.getElementById('introScreen');
+        const introButton = document.getElementById('introButton');
+        const introClickOverlay = document.getElementById('introClickOverlay');
+        const introVideo = document.getElementById('introVideo');
 
-        // Initial setup
-        showMainMenu(); // Show main menu on page load
+        // Note: Main Menu logic is handled by showMainMenu(), which is called at the end of the video
+
+        introButton.addEventListener('click', () => {
+            introClickOverlay.style.display = 'none'; // Hide button
+            introVideo.style.display = 'block'; // Show video
+            
+            // Attempt to play video
+            introVideo.play().then(() => {
+                console.log("Intro video playing.");
+            }).catch(e => {
+                console.error("Video play error:", e);
+                // If video fails (e.g. format not supported), skip to menu
+                endIntro();
+            });
+        });
+
+        introVideo.addEventListener('ended', () => {
+            endIntro();
+        });
+
+        function endIntro() {
+            // Fade out intro screen
+            introScreen.style.transition = 'opacity 0.5s';
+            introScreen.style.opacity = '0';
+            setTimeout(() => {
+                introScreen.style.display = 'none';
+                showMainMenu(); // Proceed to game menu
+            }, 500);
+        }
+
+        // Initially we DON'T call showMainMenu() because the CSS hides it by default now (opacity:0, visibility:hidden)
+        // and we want the intro screen to be the first thing seen.
+        // showMainMenu() will be called when video ends.
     </script>
 </body>
 </html>
